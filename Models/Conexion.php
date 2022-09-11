@@ -1,5 +1,5 @@
 <?php 
-class conexion{
+class Conexion{
 	protected $db;
 	private $driver="mysql";
 	private $host="localhost";
