@@ -9,7 +9,7 @@ if($_POST){
 		$agregar=$modeloTipoDoc->agregar($idTipoDoc, $nombreTipoDoc);
 
 		if($agregar){
-		    echo "<script> window.location='../../Views/templates/TipoDoc/list.php'; </script>";
+		    echo "<script> window.location='../../Views/templates/TipoDoc/add.php'; </script>";
 		}else{
 			echo "<script> window.location='../../Views/templates/TipoDoc/add.php'; </script>";
 		}

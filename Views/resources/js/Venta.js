@@ -46,71 +46,30 @@ function addItemToShoppingCart(itemTitle, itemPrice, itemImage, itemDesc, itemCa
   const shoppingCartContent = `
   <div class="row shoppingCartItem">
         
-            <div class="shopping-cart-item d-flex align-items-center h-100 border-bottom pb-2 pt-3">
-                <img src=${itemImage} class="shopping-cart-image">
-                <p class="shopping-cart-item-title shoppingCartItemTitle text-truncate ml-3 mb-0">${itemTitle}</p>
-            </div>
-  
+    <div class="shopping-cart-item">
+      <img src=${itemImage} class="shopping-cart-image" width="200">
+      <p class="shopping-cart-item-title shoppingCartItemTitle">${itemTitle}</p>
+    </div>
 
-            <div class="shopping-cart-price d-flex align-items-center h-100 border-bottom pb-2 pt-3">
-                <p class="item-price mb-0 shoppingCartItemPrice">${itemPrice}</p>
-            </div>
+    <div class="shopping-cart-desc">
+      <p>${itemDesc}</p>
+    </div>
 
-            <div
-                class="shopping-cart-quantity d-flex justify-content-between align-items-center h-100 border-bottom pb-2 pt-3">
-                <input class="shopping-cart-quantity-input shoppingCartItemQuantity" type="number"
-                    value="1">
-                <button class="btn btn-danger buttonDelete" type="button">X</button>
-            </div>
-   
-    
-            <div class="shopping-cart-price d-flex align-items-center h-100 border-bottom pb-2 pt-3">
-                <p class="item-price mb-0 shoppingCartItemPrice">${itemDesc}</p>
-            </div>
+    <div class="shopping-cart-cat">
+      <p>${itemCat}</p>
+    </div>
 
-            <div class="shopping-cart-price d-flex align-items-center h-100 border-bottom pb-2 pt-3">
-                <p class="item-price mb-0 shoppingCartItemPrice">${itemCat}</p>
-            </div>
 
-            <!--<table>
-            <tr>
-                <th>Producto</th>
-                <th>Descripcion</th>
-                <th>Precio</th>
-                <th>Cantidad</th>
-                <th>Acciones</th>
-            </tr>
-            <tr>
-                <td>
-                    <div class="shopping-cart-item d-flex align-items-center h-100 border-bottom pb-2 pt-3">
-                        <img src=${itemImage} class="shopping-cart-image">
-                        <p class="shopping-cart-item-title shoppingCartItemTitle text-truncate ml-3 mb-0">${itemTitle}</p>
-                    </div>
-                </td>
-                <td>
-                    <div class="shopping-cart-price d-flex align-items-center h-100 border-bottom pb-2 pt-3">
-                        <p class="item-price mb-0 shoppingCartItemPrice">${itemDesc}</p>
-                    </div>
-                </td>
-                <td>
-                    <div class="shopping-cart-price d-flex align-items-center h-100 border-bottom pb-2 pt-3">
-                        <p class="item-price mb-0 shoppingCartItemPrice">${itemPrice}</p>
-                    </div>
-                </td>
-                <td>
-                    <div class="shopping-cart-quantity d-flex justify-content-between align-items-center h-100 border-bottom pb-2 pt-3">
-                        <input class="shopping-cart-quantity-input shoppingCartItemQuantity" type="number" value="1">
-                    </div>
-                </td>
-                <td>
-                    <divclass="shopping-cart-quantity d-flex justify-content-between align-items-center h-100 border-bottom pb-2 pt-3">
-                        <button class="btn btn-danger buttonDelete" type="button">X</button>
-                    </div>
-                </td>
-            </tr>
-        </table>-->
-     
-    </div>`;
+    <div class="shopping-cart-price">
+      <p class="item-price shoppingCartItemPrice">${itemPrice}</p>
+    </div>
+
+    <div class="shopping-cart-quantity">
+      <input class="shopping-cart-quantity-input shoppingCartItemQuantity" type="number" value="1">
+    </div>
+
+    <button class="btn btn-danger buttonDelete" type="button">X</button>
+  </div>`;
   shoppingCartRow.innerHTML = shoppingCartContent;
   shoppingCartItemsContainer.append(shoppingCartRow);
 
@@ -146,8 +105,9 @@ function updateShoppingCartTotal() {
     );
     total = total + shoppingCartItemPrice * shoppingCartItemQuantity;
   });
-  shoppingCartTotal.innerHTML = `${total.toFixed(2)}$`;
+  shoppingCartTotal.innerHTML = `${total}$`;
 }
+
 
 function removeShoppingCartItem(event) {
   const buttonClicked = event.target;
