@@ -8,5 +8,30 @@
 </head>
 <body>
     <h1>Inicio</h1>
+    <header>  
+            <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
+            <div class="container">
+                <div class="navbar-collapse collapse" id="navbarContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                    <a class="nav-link" href="Views/templates/cajero/list.php">Cajero</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="Views/templates/producto/list.php">producto</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="Views/templates/Cliente/list.php">Cliente</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="Views/templates/pedido/list.php">pedido</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="btn btn-primary ml-lg-2" href="login.php">LOGIN</a>
+                    </li>
+                </ul>
+                </div>
+            </div> 
+            </nav>
+    
 </body>
 </html>

@@ -1,7 +1,7 @@
 <?php 
 require_once('../../Models/Usuario.php');
 
-
+  
 if($_POST){
 	$correoUsuario=$_POST['correoUsuario'];
 	$passworUsuario=$_POST['passworUsuario'];
@@ -19,4 +19,5 @@ if($_POST){
 }else{
 	header('Location:../../login.php');
 }
+
 ?>

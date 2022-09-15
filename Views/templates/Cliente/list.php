@@ -39,7 +39,7 @@ $modeloCliente=new cliente();
             <!-- <td><?php //echo $cl['nombreUsuario'];?></td> -->
 
             <td><a href="edit.php?id=<?php echo $cl['idCliente']; ?>">Editar</a></td>
-            <td><a href="ver.php?id=<?php echo $cl['idCliente']; ?>">Ver</a></td>
+            <!--<td><a href="ver.php?id=<?php echo $cl['idCliente']; ?>">Ver</a></td>-->
             <td><a href="delete.php?id=<?php echo $cl['idCliente']; ?>">Eliminar</a></td>
         </tr>
         <?php 
