@@ -11,11 +11,20 @@ if($_POST){
 
 	$validar=$modeloUsuario->validar($correoUsuario, $passworUsuario, $rolUsuario);
 
-	if ($validar && $rolUsuario='Administrador') {
-			header('Location:../../index.php');
-		}else{
-			header('Location:../../login.php');
+	if ($validar && $rolUsuario=='Administrador') {
+			header('Location:../../Views/templates/Administrador/dashboard/dashboard.php');
 		}
+		elseif($validar && $rolUsuario=='Cliente'){
+	 
+			header("Location:../../Views/templates/Cliente/dashboardc.php");		
+		}
+		elseif($validar && $rolUsuario=='Cajero'){
+	 
+			header("Location:../../Views/templates/Administrador/dashboard/dashboard.php");		
+		}
+	else{
+		header('Location:../../login.php');
+	}	
 }else{
 	header('Location:../../login.php');
 }

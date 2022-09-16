@@ -10,21 +10,19 @@
 
     <h1>Agregar Usuario</h1>
 
-    <form method="POST" action="../../../Controllers/Usuario/add.php">
-	
-    <label>Id :</label>
-    <input type="text" name="idUsuario"><br>
+    <form method="POST" action="#" enctype="multipart/form-data">
+    <input type="hidden" name="idUsuario"><br>
 
-    <label>Nombre:</label>
+    <label>Nombre</label>
     <input type="text" name="nombreUsuario"><br>
 
-    <label>Correo:</label>
+    <label>Correo</label>
     <input type="email" name="correoUsuario" placeholder="digite su correo"><br>
 
-    <label>Contraseña:</label>
+    <label>Contraseña</label>
     <input type="password" name="passworUsuario"><br>
 
-    <label>Rol:</label>
+    <label>Rol</label>
     <select name="rolUsuario" id="rol">
         <option value="ninguno">Seleccione un rol</option>
         <option value="Administrador">Administrador</option>
@@ -38,10 +36,7 @@
     <input id="radio" type="radio" name="estadoUsuario" value="0"><b>In-activo</b><br>
 
     <input id="boton" type="submit"value="Registrar">
-
-    </div>
-
-    </div>		
+    	
     </form>
     
 </body>

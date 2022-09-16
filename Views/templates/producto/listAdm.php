@@ -18,6 +18,7 @@ $modeloProducto=new producto();
     <table width="100%">
         <tr>
             <th>ID</th>
+            <th>Foto</th>
             <th>Nombre</th>
             <th>Cantidad</th>
             <th>Fecha caducidad</th>
@@ -34,6 +35,7 @@ $modeloProducto=new producto();
             ?>
             
             <td><?php echo $pr['idProducto'];?></td>
+            <td><img src="../../../Uploads/<?php echo $pr['foto'];?>" alt="" width="200"></td>
             <td><?php echo $pr['nombreProducto'];?></td>
             <td><?php echo $pr['cantidadProducto'];?></td>
             <td><?php echo $pr['fechaCaducidad'];?></td>

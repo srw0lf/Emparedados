@@ -29,7 +29,7 @@ $modeloProducto=new producto();
             <div class="producto">
                 <div class="item shadow">
                     <h3 class="item-title"><?php echo $pr['nombreProducto'];?></h3>
-                    <img class="item-image" src="https://cdn-icons-png.flaticon.com/512/117/117885.png" width="200">
+                    <img class="item-image" src="../../../Uploads/<?php echo $pr['foto'];?>" alt="" width="200">
 
                     <div class="item-details">
                         <p class="item-price"><?php echo $pr['precioUnidad'];?></p>
@@ -61,7 +61,6 @@ $modeloProducto=new producto();
                     <div class="shopping-cart-total">
                         <p class="">Total</p>
                         <p class="shoppingCartTotal">0$</p>
-                        <p class="shoppingCartsubTotal">0$</p>
                         <div class="toast ml-auto bg-info" role="alert" aria-live="assertive" aria-atomic="true"
                             data-delay="2000">
                         </div>

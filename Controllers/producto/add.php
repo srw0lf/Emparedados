@@ -10,9 +10,25 @@ if($_POST){
         $descripcionProducto=$_POST['descripcionProducto'];
 		$estadoProducto=$_POST['estadoProducto'];
 		$idCategoria_FK=$_POST['idCategoria_FK'];
+		$foto=$_FILES['foto']['name'];
+
+		if (isset($_FILES['foto'])) {
+
+			$file_name=$_FILES['foto']['name'];
+			$file_tmp=$_FILES['foto']['tmp_name'];
+			$upload_folder="../../Uploads/";
+	
+			$movefile=move_uploaded_file($file_tmp, $upload_folder .$file_name);
+			
+			if ($movefile) {
+				echo "Se movio";
+			}else{
+				echo "Nokas perro";
+			}
+		}
 
 		$modeloProducto=new producto();
-		$agregar=$modeloProducto->agregar($idProducto, $nombreProducto, $cantidadProducto, $fechaCaducidad, $precioUnidad, $descripcionProducto, $estadoProducto, $idCategoria_FK);
+		$agregar=$modeloProducto->agregar($idProducto, $nombreProducto, $cantidadProducto, $fechaCaducidad, $precioUnidad, $descripcionProducto, $estadoProducto, $idCategoria_FK, $foto);
 
 		if($agregar){
 		    echo "<script> window.location='../../Views/templates/Producto/listAdm.php'; </script>";

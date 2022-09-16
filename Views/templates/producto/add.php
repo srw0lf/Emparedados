@@ -1,24 +1,26 @@
 <?php 
-//require_once('../../../Models/Cajero.php');
-//$modeloCajero=new cajero();
+// require_once('../../../Models/Cajero.php');
+// $modeloCajero=new cajero();
 
 require_once('../../../Models/Categoria.php');
 $modeloCategoria=new categoria();
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emparedados</title>
+    <title>Usuario prueba</title>
 </head>
 <body>
 
-    <h1>Registrar Producto</h1>
+    <h1>Agregar Producto</h1>
 
-    <form action="../../../Controllers/Producto/add.php" method="POST">
+    <form method="POST" action="../../../Controllers/producto/add.php" enctype="multipart/form-data">
         <input type="hidden" name="idProducto" id="id"><br>
 
         <label for="name">Nombre del producto:</label>
@@ -39,9 +41,9 @@ $modeloCategoria=new categoria();
         <label for="">Categoria:</label>
         <select name="idCategoria_FK" id="categoria">
             <option value="null">Seleccione una categoria</option>
-            <?php $categoria=$modeloCategoria->consultar(); 
-            if ($categoria!=null) {
-                foreach($categoria as $ct){
+             <?php $categoria=$modeloCategoria->consultar(); 
+                if ($categoria!=null) {
+                foreach($categoria as $ct){ 
             ?>
             <option value="<?php echo $ct['idCategoria'];?>"><?php echo $ct['nombreCategoria'];?></option>
             <?php 
@@ -51,12 +53,15 @@ $modeloCategoria=new categoria();
 
         </select><br>
 
+        <input type="file" name="foto"><br>
+
         <label for="txt">Estado del producto</label>
-        <input type="radio" name="estadoProducto" id="estado" value="1">activo
+        <input type="radio" name="estadoProducto" id="estado" value="1"><label for="">activo</label>
 
-        <input type="radio" name="estadoProducto" id="estado" value="0">in-activo
+        <input type="radio" name="estadoProducto" id="estado" value="0"><label for="">in-activo</label>
 
-        <input type="submit" name="bt-enviar" id="bt-enviar" value="Registar">
+        <input id="boton" type="submit"value="Registrar">		
     </form>
+    
 </body>
 </html>

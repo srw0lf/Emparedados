@@ -48,15 +48,15 @@ function addItemToShoppingCart(itemTitle, itemPrice, itemImage, itemDesc, itemCa
         
     <div class="shopping-cart-item">
       <img src=${itemImage} class="shopping-cart-image" width="200">
-      <p class="shopping-cart-item-title shoppingCartItemTitle">${itemTitle}</p>
+      <input type="text" class="shopping-cart-item-title shoppingCartItemTitle" value="${itemTitle}" readonly="">
     </div>
 
     <div class="shopping-cart-desc">
-      <p>${itemDesc}</p>
+      <input type="text" value="${itemDesc}" readonly="">
     </div>
 
     <div class="shopping-cart-cat">
-      <p>${itemCat}</p>
+      <input type="text" value="${itemCat}" readonly="">
     </div>
 
 

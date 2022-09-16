@@ -7,8 +7,8 @@ class Producto extends Conexion{
     $this->db=parent::__construct();
   }
 
-  public function agregar($idProducto, $nombreProducto, $cantidadProducto, $fechaCaducidad, $precioUnidad, $descripcionProducto, $estadoProducto, $idCategoria_FK){
-    $agregar=$this->db->prepare("INSERT INTO  Producto (idProducto, nombreProducto, cantidadProducto, fechaCaducidad, precioUnidad, descripcionProducto, estadoProducto, idCategoria_FK) VALUES (:idProducto, :nombreProducto, :cantidadProducto, :fechaCaducidad, :precioUnidad, :descripcionProducto, :estadoProducto, :idCategoria_FK);");
+  public function agregar($idProducto, $nombreProducto, $cantidadProducto, $fechaCaducidad, $precioUnidad, $descripcionProducto, $estadoProducto, $idCategoria_FK, $foto){
+    $agregar=$this->db->prepare("INSERT INTO  Producto (idProducto, nombreProducto, cantidadProducto, fechaCaducidad, precioUnidad, descripcionProducto, estadoProducto, idCategoria_FK, foto) VALUES (:idProducto, :nombreProducto, :cantidadProducto, :fechaCaducidad, :precioUnidad, :descripcionProducto, :estadoProducto, :idCategoria_FK, :foto);");
     $agregar->bindparam(':idProducto', $idProducto);
     $agregar->bindparam(':nombreProducto', $nombreProducto);
     $agregar->bindparam(':cantidadProducto', $cantidadProducto);
@@ -17,6 +17,7 @@ class Producto extends Conexion{
     $agregar->bindparam(':descripcionProducto', $descripcionProducto);
     $agregar->bindparam(':estadoProducto', $estadoProducto);
     $agregar->bindparam(':idCategoria_FK', $idCategoria_FK);
+    $agregar->bindparam(':foto', $foto);
     
     
     if($agregar->execute()){
