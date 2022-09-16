@@ -27,7 +27,7 @@
         <input type="hidden" name="idTipoDoc" id="id" value="<?php echo $datos['idTipoDoc']?>">
 
         <label for="name">Nombre:</label>
-        <input type="text" name="nombreTipoDoc" id="nombre" value="<?php echo $datos['nombreTipoDoc']?>"><br>
+        <input type="text" name="nombreTipoDoc" id="nombre" value="<?php echo $datos['nombreTipoDoc']?>" minlength="3" required  pattern="[A-Za-zÑñÁÉÍÓÚáéíóú\s]{3,30}"><br>
 
         <button type="submit" name="bt-enviar" id="bt-enviar">Actualizar</button>
 

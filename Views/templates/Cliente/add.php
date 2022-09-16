@@ -20,16 +20,16 @@
         <input type="hidden" name="idCliente" id="id"><br>
 
         <label for="name">Nombre(s):</label>
-        <input type="text" name="nombreCliente" id="nombre"><br>
+        <input type="text" name="nombreCliente" id="nombre" minlength="3" required pattern="[A-Za-zÑñÁÉÍÓÚáéíóú\s]{3,30}"><br>
 
         <label for="apellido">Apellido(s):</label>
-        <input type="text" name="apellidoCliente" id="apellido"><br>
+        <input type="text" name="apellidoCliente" id="apellido" minlength="3" required pattern="[A-Za-zÑñÁÉÍÓÚáéíóú\s]{3,30}"><br>
 
         <label for="adress">Dirección:</label>
-        <input type="text" name="direccionCliente" id="direccion"><br>
+        <input type="text" name="direccionCliente" id="direccion" required><br>
 
         <label for="number">Telefono/ número celular:</label>
-        <input type="number" name="telefonoCliente" id="telefono"><br>
+        <input type="number" name="telefonoCliente" id="telefono"  required ><br>
 
         <input type="submit" name="bt-enviar" id="bt-enviar" value="Registar">
     </form>

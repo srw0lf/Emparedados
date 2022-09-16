@@ -1,4 +1,4 @@
-<?php 
+ <?php 
 	require_once('../../../Models/Cajero.php');
 	$modeloCajero=new Cajero();
 	$id=$_GET['id'];
@@ -30,13 +30,13 @@
         <input type="hidden" name="idCajero" id="id" value="<?php echo $datos['idCajero']?>">
 
         <label for="name">Nombre(s):</label>
-        <input type="text" name="nombreCajero" id="nombre" value="<?php echo $datos['nombreCajero']?>"><br>
+        <input type="text" name="nombreCajero" id="nombre" value="<?php echo $datos['nombreCajero']?>"required  pattern="[A-Za-zÑñÁÉÍÓÚáéíóú\s]{3,30}"><br>
 
         <label for="apellido">Apellido(s):</label>
-        <input type="text" name="apellidoCajero" id="apellido" value="<?php echo $datos['apellidoCajero']?>"><br>
+        <input type="text" name="apellidoCajero" id="apellido" value="<?php echo $datos['apellidoCajero']?>" required  pattern="[A-Za-zÑñÁÉÍÓÚáéíóú\s]{3,30}"><br>
 
         <label for="adress">Dirección:</label>
-        <input type="text" name="direccionCajero" id="direccion" value="<?php echo $datos['direccionCajero']?>"><br>
+        <input type="text" name="direccionCajero" id="direccion" value="<?php echo $datos['direccionCajero']?>" required><br>
 
         <label for="">Tipo de documento:</label>
         <select name="idTipoDoc_FK" id="tipodoc">
@@ -54,10 +54,10 @@
         </select><br>
 
         <label for="number">Número de documento:</label>
-        <input type="number" name="numeroTipoDoc" id="telefono" value="<?php echo $datos['numeroTipoDoc']?>"><br>
+        <input type="number" name="numeroTipoDoc" id="telefono" value="<?php echo $datos['numeroTipoDoc']?>" required><br>
 
         <label for="number">Telefono/ número celular:</label>
-        <input type="number" name="telefonoCajero" id="telefono" value="<?php echo $datos['telefonoCajero']?>"><br><br>
+        <input type="number" name="telefonoCajero" id="telefono" value="<?php echo $datos['telefonoCajero']?>" required><br><br>
 
         <button type="submit" name="bt-enviar" id="bt-enviar">Actualizar</button>
 

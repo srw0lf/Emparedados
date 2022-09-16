@@ -22,19 +22,19 @@ $modeloCategoria=new categoria();
         <input type="hidden" name="idProducto" id="id"><br>
 
         <label for="name">Nombre del producto:</label>
-        <input type="text" name="nombreProducto" id="nombre"><br>
+        <input type="text" name="nombreProducto" id="nombre" minlength="8" maxlength="30" required pattern="[A-Za-zÑñÁÉÍÓÚáéíóú\s]{3,30}"><br>
 
         <label for="cantidad">Cantidad disponible:</label>
-        <input type="number" name="cantidadProducto" id="cantidad"><br>
+        <input type="number" name="cantidadProducto" id="cantidad" required><br>
 
         <label for="date">Fecha de caducidad:</label>
         <input type="date" name="fechaCaducidad" id="fecha"><br>
 
         <label for="number">Precio (por unidad):</label>
-        <input type="number" name="precioUnidad" id="precio"><br>
+        <input type="number" name="precioUnidad" id="precio" required><br>
 
         <label for="txt">Descripcion del producto</label>
-        <input type="text" name="descripcionProducto" id="descripcion"><br>
+        <input type="text" name="descripcionProducto" id="descripcion" minlength="10" maxlength="30" required pattern="[A-Za-zÑñÁÉÍÓÚáéíóú\s]{3,30}"><br>
 
         <label for="">Categoria:</label>
         <select name="idCategoria_FK" id="categoria">
@@ -52,7 +52,7 @@ $modeloCategoria=new categoria();
         </select><br>
 
         <label for="txt">Estado del producto</label>
-        <input type="radio" name="estadoProducto" id="estado" value="1">activo
+        <input type="radio" name="estadoProducto" id="estado"  value="1">activo
 
         <input type="radio" name="estadoProducto" id="estado" value="0">in-activo
 

@@ -32,19 +32,19 @@
         <input type="hidden" name="idProducto" id="id" value="<?php echo $datos['idProducto']?>">
 
         <label for="name">Nombre del producto:</label>
-        <input type="text" name="nombreProducto" id="nombre" value="<?php echo $datos['nombreProducto']?>"><br>
+        <input type="text" name="nombreProducto" id="nombre" value="<?php echo $datos['nombreProducto']?>" minlength="3" required  pattern="[A-Za-zÑñÁÉÍÓÚáéíóú\s]{3,30}"><br>
 
         <label for="cantidad">Cantidad disponible:</label>
-        <input type="number" name="cantidadProducto" id="cantidad" value="<?php echo $datos['cantidadProducto']?>"><br>
+        <input type="number" name="cantidadProducto" id="cantidad" value="<?php echo $datos['cantidadProducto']?>" required><br>
 
         <label for="date">Fecha de caducidad:</label>
-        <input type="date" name="fechaCaducidad" id="fecha" value="<?php echo $datos['fechaCaducidad']?>"><br>
+        <input type="date" name="fechaCaducidad" id="fecha" value="<?php echo $datos['fechaCaducidad']?>"required><br>
 
         <label for="number">Precio (por unidad):</label>
-        <input type="number" name="precioUnidad" id="precio" value="<?php echo $datos['precioUnidad']?>"><br>
+        <input type="number" name="precioUnidad" id="precio" value="<?php echo $datos['precioUnidad']?>" required><br>
 
         <label for="txt">Descripcion del producto</label>
-        <input type="text" name="descripcionProducto" id="descripcion" value="<?php echo $datos['descripcionProducto']?>"><br>
+        <input type="text" name="descripcionProducto" id="descripcion" value="<?php echo $datos['descripcionProducto']?>" required  pattern="[A-Za-zÑñÁÉÍÓÚáéíóú\s]{3,30}"><br>
 
         <label for="">Categoria:</label>
         <select name="idCategoria_FK" id="categoria">

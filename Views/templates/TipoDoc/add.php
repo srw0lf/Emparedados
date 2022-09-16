@@ -14,7 +14,7 @@
         <input type="hidden" name="idTipoDoc" id="id"><br>
 
         <label for="name">Nombre</label>
-        <input type="text" name="nombreTipoDoc" id="nombre"><br>
+        <input type="text" name="nombreTipoDoc" id="nombre" minlegth="7" pattern="[A-Za-zÑñÁÉÍÓÚáéíóú\s]{3,30}"><br>
 
         <button type="submit" name="bt-enviar" id="bt-enviar" >Registrar</button>
     </form>

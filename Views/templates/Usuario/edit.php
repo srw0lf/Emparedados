@@ -31,13 +31,13 @@ $datosUsuario=$modeloUsuario->consultarxid($id);
 	<input type="text" name="idUsuario" placeholder="ingrese su id" value="<?php echo $datos['idUsuario']?>"><br>
 
 	<label>Nombre:</label>
-	<input type="text" name="nombreUsuario" placeholder="digite su nombre"  value="<?php echo $datos['nombreUsuario']?>"><br>
+	<input type="text" name="nombreUsuario" placeholder="digite su nombre"  value="<?php echo $datos['nombreUsuario']?>" minlegth="3" required  pattern="[A-Za-zÑñÁÉÍÓÚáéíóú\s]{3,30}"><br>
 
 	<label>Correo:</label>
-	<input type="email" name="correoUsuario" placeholder="digite su correo" value="<?php echo $datos['correoUsuario']?>"><br>
+	<input type="email" name="correoUsuario" placeholder="digite su correo" value="<?php echo $datos['correoUsuario']?>" required pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"><br>
 
 	<label>Contraseña:</label><br>
-	<input type="password" name="passworUsuario" placeholder="digite su contraseña" value="<?php echo $datos['passworUsuario']?>"><br>
+	<input type="password" name="passworUsuario" placeholder="digite su contraseña" value="<?php echo $datos['passworUsuario']?>" minlength="8" required><br>
 
 	<label>Rol:</label><br>
 	<select name="rolUsuario" id="rol">

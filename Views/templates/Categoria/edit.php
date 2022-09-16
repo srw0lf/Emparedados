@@ -27,10 +27,10 @@
         <input type="hidden" name="idCategoria" id="id" value="<?php echo $datos['idCategoria']?>"><br>
 
         <label for="name">Nombre:</label>
-        <input type="text" name="nombreCategoria" id="nombre" value="<?php echo $datos['nombreCategoria']?>"><br>
+        <input type="text" name="nombreCategoria" id="nombre" value="<?php echo $datos['nombreCategoria']?>" minlength="3" required  pattern="[A-Za-zÑñÁÉÍÓÚáéíóú\s]{3,30}"><br>
 
         <label for="name">Descripcion:</label>
-        <input type="text" name="descripcion" id="descripcion" value="<?php echo $datos['descripcion']?>"><br>
+        <input type="text" name="descripcion" id="descripcion" value="<?php echo $datos['descripcion']?>" required><br>
 
         <button type="submit" name="bt-enviar" id="bt-enviar">Actualizar</button>
 

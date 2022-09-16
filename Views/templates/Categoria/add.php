@@ -14,12 +14,12 @@
         <input type="hidden" name="idCategoria" id="id"><br>
 
         <label for="name">Nombre:</label>
-        <input type="text" name="nombreCategoria" id="nombre"><br>
+        <input type="text" name="nombreCategoria" id="nombre" required pattern="[A-Za-zÑñÁÉÍÓÚáéíóú\s]{3,30}"><br>
 
         <label for="name">Descripcion:</label>
-        <input type="text" name="descripcion" id="descripcion"><br>
+        <input type="text" name="descripcion" id="descripcion" required ><br><br>
 
-        <button type="submit" name="bt-enviar" id="bt-enviar" >Registrar</button>
+        <button type="submit" name="bt-enviar" id="bt-enviar">Registrar</button>
     </form>
 </body>
 </html>

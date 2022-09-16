@@ -30,16 +30,16 @@
         <input type="hidden" name="idCliente" id="id" value="<?php echo $datos['idCliente']?>"><br>
 
         <label for="name">Nombre(s):</label>
-        <input type="text" name="nombreCliente" id="nombre" value="<?php echo $datos['nombreCliente']?>"><br>
+        <input type="text" name="nombreCliente" id="nombre" value="<?php echo $datos['nombreCliente']?>" minlength="3" required  pattern="[A-Za-zÑñÁÉÍÓÚáéíóú\s]{3,30}"><br>
 
         <label for="apellido">Apellido(s):</label>
-        <input type="text" name="apellidoCliente" id="apellido" value="<?php echo $datos['apellidoCliente']?>"><br>
+        <input type="text" name="apellidoCliente" id="apellido" value="<?php echo $datos['apellidoCliente']?>" minlength="3" required  pattern="[A-Za-zÑñÁÉÍÓÚáéíóú\s]{3,30}"><br>
 
         <label for="adress">Dirección:</label>
-        <input type="text" name="direccionCliente" id="direccion" value="<?php echo $datos['direccionCliente']?>"><br>
+        <input type="text" name="direccionCliente" id="direccion" value="<?php echo $datos['direccionCliente']?>" required><br>
 
         <label for="number">Telefono/ número celular:</label>
-        <input type="number" name="telefonoCliente" id="telefono" value="<?php echo $datos['telefonoCliente']?>"><br>
+        <input type="number" name="telefonoCliente" id="telefono" value="<?php echo $datos['telefonoCliente']?>" required><br>
 
         <button type="submit" name="bt-enviar" id="bt-enviar">Actualizar</button>
 
