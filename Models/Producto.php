@@ -39,7 +39,8 @@ class Producto extends Conexion{
 
   public function cosnsultarxid($idProducto){
     $rows=null;
-    $mostrar=$this->db->prepare("SELECT * FROM Producto WHERE idProducto=:idProducto;");
+    $mostrar=$this->db->prepare("SELECT *from  Producto as p join Factura as f on p.idProducto=f.idProducto_FK join Pedido as pe 
+    on pe.idPedido=f.idPedido_FK join Categoria as c on c.idCategoria=p.idCategoria_FK;");
     $mostrar->bindparam(':idProducto', $idProducto);
     $mostrar->execute();
     while($result=$mostrar->fetch()){

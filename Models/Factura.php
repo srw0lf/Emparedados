@@ -7,11 +7,11 @@ class Factura extends Conexion{
     $this->db=parent::__construct();
   }
 
-  public function agregar($idPedido, $fechaPedido, $direccionPedido, $direccionCajero){
-    $agregar=$this->db->prepare("INSERT INTO  Pedido (idPedido, fechaPedido, direccionPedido) VALUES (:idPedido, :fechaPedido, :direccionPedido);");
+  public function agregar($idPedido, $idProducto, $cantidad){
+    $agregar=$this->db->prepare("INSERT INTO  Factura (idPedido_FK, idProducto_FK, cantidad) VALUES (:idPedido, :idProducto, :cantidad);");
     $agregar->bindparam(':idPedido', $idPedido);
-    $agregar->bindparam(':fechaPedido', $fechaPedido);
-    $agregar->bindparam(':direccionPedido', $direccionPedido);
+    $agregar->bindparam(':idProducto', $idProducto);
+    $agregar->bindparam(':cantidad', $cantidad);
     
 
     if($agregar->execute()){
@@ -23,7 +23,7 @@ class Factura extends Conexion{
 
   public function consultar(){
     $rows=null;
-    $mostrar=$this->db->prepare(" SELECT *FROM Pedido;");
+    $mostrar=$this->db->prepare(" SELECT *FROM Factura;");
     $mostrar->execute();
     while($result=$mostrar->fetch()){
       $rows[]=$result;
@@ -31,52 +31,17 @@ class Factura extends Conexion{
     return $rows;
   }
 
-  public function cosnsultarxid($idPedido){
+  public function cosnsultarxid($idPedido, $idProducto){
     $rows=null;
-    $mostrar=$this->db->prepare("SELECT * FROM Pedido WHERE idPedido=:idPedido;");
+    $mostrar=$this->db->prepare("SELECT * FROM Factura WHERE idPedido=:idPedido AND idProducto=:idProducto;");
     $mostrar->bindparam(':idPedido', $idPedido);
+    $mostrar->bindparam(':idProducto', $idProducto);
     $mostrar->execute();
     while($result=$mostrar->fetch()){
       $rows[]=$result;
     }
     return $rows;
   }
-
-  public function actualizar($idPedido, $fechaPedido, $direccionPedido, $direccionCajero){
-    $editar=$this->db->prepare("UPDATE Pedido SET idPedido=:idPedido, fechaPedido=:fechaPedido, direccionPedido=:direccionPedido WHERE idPedido=:idPedido;");
-    $editar->bindparam(':idPedido', $idPedido);
-    $editar->bindparam(':fechaPedido', $fechaPedido);
-    $editar->bindparam(':direccionPedido', $direccionPedido);
-
-
-    if($editar->execute()){
-      return true;
-    }else{
-      return false;
-    }
-  }
-
-  public function delete($id){
-    $rows=null;
-    $eliminar=$this->db->prepare("DELETE FROM Pedido WHERE idPedido=:id");
-    $eliminar->bindparam(':id', $id);
-    $eliminar->execute();
-    if($eliminar->execute()){
-      return true;
-    }else{
-      return false;
-    }
-  }
-
-  public  function CalcularSubtotal($precioUnidad, $cantidad){
-
-    $subtotal=$precioUnidad*$cantidad
-
-    return $subtotal
-  }
-
-  
-
 
 }
 ?>

@@ -7,7 +7,7 @@ class Pedido extends Conexion{
     $this->db=parent::__construct();
   }
 
-  public function agregar($idPedido, $fechaPedido, $direccionPedido, $direccionCajero){
+  public function agregar($idPedido, $fechaPedido, $direccionPedido){
     $agregar=$this->db->prepare("INSERT INTO  Pedido (idPedido, fechaPedido, direccionPedido) VALUES (:idPedido, :fechaPedido, :direccionPedido);");
     $agregar->bindparam(':idPedido', $idPedido);
     $agregar->bindparam(':fechaPedido', $fechaPedido);
@@ -31,7 +31,7 @@ class Pedido extends Conexion{
     return $rows;
   }
 
-  public function cosnsultarxid($idPedido){
+  public function consultarxid($idPedido){
     $rows=null;
     $mostrar=$this->db->prepare("SELECT * FROM Pedido WHERE idPedido=:idPedido;");
     $mostrar->bindparam(':idPedido', $idPedido);
@@ -66,17 +66,6 @@ class Pedido extends Conexion{
     }else{
       return false;
     }
-  }
-
-  public function cosnsultarxid($idPedido){
-    $rows=null;
-    $mostrar=$this->db->prepare("SELECT * FROM Pedido WHERE idPedido=:idPedido;");
-    $mostrar->bindparam(':idPedido', $idPedido);
-    $mostrar->execute();
-    while($result=$mostrar->fetch()){
-      $rows[]=$result;
-    }
-    return $rows;
   }
 
 }

@@ -16,15 +16,17 @@ function addToCartClicked(event) {
   const item = button.closest('.item');
 
   const itemTitle = item.querySelector('.item-title').textContent;
+  const itemIdPr = item.querySelector('.item-idPr').textContent;
+  const itemIdPe = item.querySelector('.item-idPe').textContent;
   const itemPrice = item.querySelector('.item-price').textContent;
   const itemDesc = item.querySelector('.item-desc').textContent;
   const itemCat = item.querySelector('.item-cat').textContent;
   const itemImage = item.querySelector('.item-image').src;
 
-  addItemToShoppingCart(itemTitle, itemPrice, itemImage, itemDesc, itemCat);
+  addItemToShoppingCart(itemTitle, itemPrice, itemImage, itemDesc, itemCat, itemIdPr, itemIdPe);
 }
 
-function addItemToShoppingCart(itemTitle, itemPrice, itemImage, itemDesc, itemCat) {
+function addItemToShoppingCart(itemTitle, itemPrice, itemImage, itemDesc, itemCat, itemIdPr, itemIdPe) {
   const elementsTitle = shoppingCartItemsContainer.getElementsByClassName(
     'shoppingCartItemTitle'
   );
@@ -61,14 +63,25 @@ function addItemToShoppingCart(itemTitle, itemPrice, itemImage, itemDesc, itemCa
 
 
     <div class="shopping-cart-price">
-      <p class="item-price shoppingCartItemPrice">${itemPrice}</p>
+      <p class="item-price shoppingCartItemPrice">${itemPrice}$</p>
     </div>
+
+    <form action="../../../Controllers/Factura/add.php" method="POST">
+
+    <input type="hidden" name="idFactura" id="">
 
     <div class="shopping-cart-quantity">
-      <input class="shopping-cart-quantity-input shoppingCartItemQuantity" type="number" value="1">
+      <input class="shopping-cart-quantity-input shoppingCartItemQuantity" type="number" value="1" name="cantidad">
     </div>
 
-    <button class="btn btn-danger buttonDelete" type="button">X</button>
+      <input type="text" name="idPedido" id="" value="${itemIdPe}">
+
+      <input type="text" name="idProducto" id="" value="${itemIdPr}">
+
+      <button type="submit">Comprar</button>
+    </form>
+
+    <button class="btn btn-danger buttonDelete" type="button">X Remove</button>
   </div>`;
   shoppingCartRow.innerHTML = shoppingCartContent;
   shoppingCartItemsContainer.append(shoppingCartRow);
@@ -125,3 +138,5 @@ function comprarButtonClicked() {
   shoppingCartItemsContainer.innerHTML = '';
   updateShoppingCartTotal();
 }
+
+

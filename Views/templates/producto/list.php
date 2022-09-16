@@ -2,6 +2,9 @@
 require_once('../../../Models/Producto.php');
 $modeloProducto=new producto();
 
+require_once('../../../Models/Pedido.php');
+$modeloPedido=new pedido();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +12,7 @@ $modeloProducto=new producto();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/6131ecdde6.js"></script>
     <title>Emparedados</title>
 </head>
 <body>
@@ -22,19 +26,34 @@ $modeloProducto=new producto();
                 foreach($producto as $pr){
                     date_default_timezone_set('America/Bogota');
                     if ($pr['estadoProducto']==1 && $pr['cantidadProducto']!==0 && $pr['fechaCaducidad']>date('Y-m-d')) {
-
+                    
+        
+                        $pedido=$modeloPedido->consultar(); 
+                        if ($pedido!=null) {
+                            foreach($pedido as $pe){    
+                        
+                            }       
+                        }
                     
             ?>
 
             <div class="producto">
                 <div class="item shadow">
                     <h3 class="item-title"><?php echo $pr['nombreProducto'];?></h3>
+
                     <img class="item-image" src="../../../Uploads/<?php echo $pr['foto'];?>" alt="" width="200">
 
                     <div class="item-details">
                         <p class="item-price"><?php echo $pr['precioUnidad'];?></p>
                         <p class="item-desc"><?php echo $pr['descripcionProducto'];?></p>
                         <p class="item-cat"><?php echo $pr['nombreCategoria'];?></p>
+                        <p class="item-idPe"><?php
+                            if ($pedido!=null) {
+                                foreach($pedido as $pe){    
+                                    echo $pe['idPedido'];
+                                }       
+                        }?></p>
+                        <p class="item-idPr"><?php echo $pr['idProducto'];?></p>
 
                         <button class="addToCart">Agregar al carrito</button>
                     </div>
@@ -47,7 +66,31 @@ $modeloProducto=new producto();
             }
             ?>
             <hr>
-        
+
+            
+
+            <form action="../../../Controllers/Pedido/add.php" method="POST">
+                <input type="hidden" name="idPedido">
+
+                <?php date_default_timezone_set('America/Bogota');?>
+				<?php $fecha=date('Y-m-d');?>
+                <input type="hidden" name="fechaPedido" id="" value="<?php echo $fecha;?>">
+				
+                <label for="">Direccion Pedido</label>
+                <input type="text" name="direccionPedido">
+
+                <button type="submit"><i class="fa-solid fa-check"></i></button>
+            </form>
+
+            <!-- <form action="../../../Controllers/Factura/add.php">
+                <input type="hidden" name="idPedido" id="" value="">
+
+                <input type="hidden" name="idProducto" id="" value=>
+
+                <input type="number" name="cantidad">
+            </form> -->
+
+              
 <!-- END SECTION STORE -->
     
         <div class="shopping-cart-items shoppingCartItemsContainer">
@@ -69,9 +112,7 @@ $modeloProducto=new producto();
                     </div>
                 </div>
             </div>
-        </div>
-
-
+        </div>        
 
 
     <!-- SCRIPTS -->
