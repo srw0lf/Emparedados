@@ -47,13 +47,15 @@ $modeloPedido=new pedido();
                         <p class="item-price"><?php echo $pr['precioUnidad'];?></p>
                         <p class="item-desc"><?php echo $pr['descripcionProducto'];?></p>
                         <p class="item-cat"><?php echo $pr['nombreCategoria'];?></p>
+                        <p>idPedido:</p>
                         <p class="item-idPe"><?php
                             if ($pedido!=null) {
                                 foreach($pedido as $pe){    
-                                    echo $pe['idPedido'];
+                                    echo $pe['idPedido'].'<br>';
                                 }       
                         }?></p>
-                        <p class="item-idPr"><?php echo $pr['idProducto'];?></p>
+                        <p>IdProducto:</p>
+                        <p class="item-idPr"> <?php echo $pr['idProducto'];?></p>
 
                         <button class="addToCart">Agregar al carrito</button>
                     </div>
@@ -92,27 +94,25 @@ $modeloPedido=new pedido();
 
               
 <!-- END SECTION STORE -->
-    
-        <div class="shopping-cart-items shoppingCartItemsContainer">
-        </div>
-        <hr>
-            <!-- ? END SHOPPING CART ITEMS -->
+<form action="../../../Controllers/Factura/prueba.php" method="POST">g
+    <div class="shopping-cart-items shoppingCartItemsContainer">
+    </div>
+    <button type="submit">registrar</button>
+</form>
+<hr>
+        <!-- ? END SHOPPING CART ITEMS -->
 
-            <!-- START TOTAL -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="shopping-cart-total">
-                        <p class="">Total</p>
-                        <p class="shoppingCartTotal">0$</p>
-                        <div class="toast ml-auto bg-info" role="alert" aria-live="assertive" aria-atomic="true"
-                            data-delay="2000">
-                        </div>
-                        <button class="comprarButton" type="button" data-toggle="modal"
-                            data-target="#comprarModal">Comprar</button>
-                    </div>
-                </div>
+        <!-- START TOTAL -->
+               
+        <div class="shopping-cart-total">
+                <p class="">Total</p>
+                <p class="shoppingCartTotal">0$</p>
+            <div class="toast ml-auto bg-info" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
             </div>
-        </div>        
+                <button class="comprarButton" type="submit">Comprar</button>
+        </div>
+           
+       
 
 
     <!-- SCRIPTS -->

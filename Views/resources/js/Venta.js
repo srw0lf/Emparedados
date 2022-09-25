@@ -50,15 +50,15 @@ function addItemToShoppingCart(itemTitle, itemPrice, itemImage, itemDesc, itemCa
         
     <div class="shopping-cart-item">
       <img src=${itemImage} class="shopping-cart-image" width="200">
-      <input type="text" class="shopping-cart-item-title shoppingCartItemTitle" value="${itemTitle}" readonly="">
+      <p class="shopping-cart-item-title shoppingCartItemTitle">${itemTitle}</p>
     </div>
 
     <div class="shopping-cart-desc">
-      <input type="text" value="${itemDesc}" readonly="">
+      <p>${itemDesc}</p>
     </div>
 
     <div class="shopping-cart-cat">
-      <input type="text" value="${itemCat}" readonly="">
+      <p>${itemPrice}</p>
     </div>
 
 
@@ -66,20 +66,18 @@ function addItemToShoppingCart(itemTitle, itemPrice, itemImage, itemDesc, itemCa
       <p class="item-price shoppingCartItemPrice">${itemPrice}$</p>
     </div>
 
-    <form action="../../../Controllers/Factura/add.php" method="POST">
-
     <input type="hidden" name="idFactura" id="">
 
     <div class="shopping-cart-quantity">
+    <label for="">Cantidad:</label>
       <input class="shopping-cart-quantity-input shoppingCartItemQuantity" type="number" value="1" name="cantidad">
     </div>
 
-      <input type="text" name="idPedido_FK" id="" value="${itemIdPe}">
+    <label for="">IdPedido:</label>
+    <input type="text" name="idPedido_FK" value="${itemIdPe}">
 
-      <input type="text" name="idProducto" id="" value="${itemIdPr}">
-
-      <button type="submit">Comprar</button>
-    </form>
+    <label for="">IdProduucto:</label>
+    <input type="text" name="idProducto_FK" id="" value="${itemIdPr}">
 
     <button class="btn btn-danger buttonDelete" type="button">X Remove</button>
   </div>`;

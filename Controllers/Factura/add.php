@@ -3,9 +3,9 @@ require_once('../../Models/Factura.php');
 
 for ($i=0; $i < count($_POST) ; $i++){ 
 	if($_POST){
-			$idPedido_FK=$_POST['idPedido_FK'];
-			$idProducto_FK=$_POST['idProducto_FK'];
-			$cantidad=$_POST['cantidad'];
+			echo $idPedido_FK=$_POST['idPedido_FK'];
+			echo $idProducto_FK=$_POST['idProducto_FK'];
+			echo $cantidad=$_POST['cantidad'];
 		
 
 			$modeloFactura=new factura();
