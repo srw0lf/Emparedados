@@ -17,7 +17,7 @@
         $cadena.="('".$idFactura[$i]."', '".$idPedido_FK[$i]."', '".$idProducto_FK[$i]."', '".$cantidad[$i]."'),";
     }
 
-    $cadena_final=substr($cadena, 0, -3);
+    $cadena_final=substr($cadena, 0, -1);
     $cadena_final.=";";
 
     

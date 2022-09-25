@@ -7,12 +7,11 @@ class Cliente extends Conexion{
     $this->db=parent::__construct();
   }
 
-  public function agregar($idCliente, $nombreCliente, $apellidoCliente, $direccionCliente, $telefonoCliente){
-    $agregar=$this->db->prepare("INSERT INTO  Cliente (idCliente, nombreCliente, apellidoCliente, direccionCliente, telefonoCliente) VALUES (:idCliente, :nombreCliente, :apellidoCliente, :direccionCliente, :telefonoCliente);");
+  public function agregar($idCliente, $nombreCliente, $apellidoCliente, $telefonoCliente){
+    $agregar=$this->db->prepare("INSERT INTO  Cliente (idCliente, nombreCliente, apellidoCliente, telefonoCliente) VALUES (:idCliente, :nombreCliente, :apellidoCliente, :telefonoCliente);");
     $agregar->bindparam(':idCliente', $idCliente);
     $agregar->bindparam(':nombreCliente', $nombreCliente);
     $agregar->bindparam(':apellidoCliente', $apellidoCliente);
-    $agregar->bindparam(':direccionCliente', $direccionCliente);
     $agregar->bindparam(':telefonoCliente', $telefonoCliente);
     
     

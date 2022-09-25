@@ -26,7 +26,7 @@
 
     <h1>Registrar tipo de documento</h1>
 
-    <form action="#" method="POST">
+    <form action="../../../Controllers/Categoria/add.php" method="POST">
         <input type="hidden" name="idCategoria" id="id"><br>
 
         <label for="name">Nombre:</label>

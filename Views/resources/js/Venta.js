@@ -74,7 +74,7 @@ function addItemToShoppingCart(itemTitle, itemPrice, itemImage, itemDesc, itemCa
       <input class="shopping-cart-quantity-input shoppingCartItemQuantity" type="number" value="1" name="cantidad">
     </div>
 
-      <input type="text" name="idPedido" id="" value="${itemIdPe}">
+      <input type="text" name="idPedido_FK" id="" value="${itemIdPe}">
 
       <input type="text" name="idProducto" id="" value="${itemIdPr}">
 
