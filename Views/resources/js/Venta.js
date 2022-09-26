@@ -49,35 +49,36 @@ function addItemToShoppingCart(itemTitle, itemPrice, itemImage, itemDesc, itemCa
   <div class="row shoppingCartItem">
         
     <div class="shopping-cart-item">
+    <label for="">Producto:</label>
       <img src=${itemImage} class="shopping-cart-image" width="200">
       <p class="shopping-cart-item-title shoppingCartItemTitle">${itemTitle}</p>
     </div>
 
     <div class="shopping-cart-desc">
+    <label for="">Descripcion:</label>
       <p>${itemDesc}</p>
     </div>
 
     <div class="shopping-cart-cat">
-      <p>${itemPrice}</p>
+    <label for="">Categoria:</label>
+      <p>${itemCat}</p>
     </div>
-
-
+  
+  
     <div class="shopping-cart-price">
+    <label for="">Precio:</label>
       <p class="item-price shoppingCartItemPrice">${itemPrice}$</p>
     </div>
 
-    <input type="hidden" name="idFactura" id="">
+    <input type="hidden" name="idFactura">
 
     <div class="shopping-cart-quantity">
     <label for="">Cantidad:</label>
       <input class="shopping-cart-quantity-input shoppingCartItemQuantity" type="number" value="1" name="cantidad">
     </div>
 
-    <label for="">IdPedido:</label>
-    <input type="text" name="idPedido_FK" value="${itemIdPe}">
-
-    <label for="">IdProduucto:</label>
-    <input type="text" name="idProducto_FK" id="" value="${itemIdPr}">
+    <!--<label for="">IdProducto:</label>-->
+    <input type="text" name="idProducto_FK" value="${itemIdPr}">
 
     <button class="btn btn-danger buttonDelete" type="button">X Remove</button>
   </div>`;

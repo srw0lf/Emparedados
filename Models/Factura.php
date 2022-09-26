@@ -7,10 +7,10 @@ class Factura extends Conexion{
     $this->db=parent::__construct();
   }
 
-  public function agregar($idPedido, $idProducto, $cantidad){
-    $agregar=$this->db->prepare("INSERT INTO  Factura (idPedido_FK, idProducto_FK, cantidad) VALUES (:idPedido, :idProducto, :cantidad);");
-    $agregar->bindparam(':idPedido', $idPedido);
-    $agregar->bindparam(':idProducto', $idProducto);
+  public function agregar($idPedido, $idProducto_FK, $cantidad){
+    $agregar=$this->db->prepare("INSERT INTO  Factura (idPedido_FK, idProducto_FK, cantidad) VALUES (:idPedido_FK, :idProducto_FK, :cantidad);");
+    $agregar->bindparam(':idPedido_FK', $idPedido_FK);
+    $agregar->bindparam(':idProducto_FK', $idProducto_FK);
     $agregar->bindparam(':cantidad', $cantidad);
     
 

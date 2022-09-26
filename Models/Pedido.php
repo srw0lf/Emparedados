@@ -7,14 +7,14 @@ class Pedido extends Conexion{
     $this->db=parent::__construct();
   }
 
-  public function agregar($idPedido, $fechaPedido, $direccionPedido){
-    $agregar=$this->db->prepare("INSERT INTO  Pedido (idPedido, fechaPedido, direccionPedido) VALUES (:idPedido, :fechaPedido, :direccionPedido);");
-    $agregar->bindparam(':idPedido', $idPedido);
-    $agregar->bindparam(':fechaPedido', $fechaPedido);
-    $agregar->bindparam(':direccionPedido', $direccionPedido);
+  public function agregarPedido($idPedido, $fechaPedido, $direccionPedido){
+    $agregarPedido=$this->db->prepare("INSERT INTO  Pedido (idPedido, fechaPedido, direccionPedido) VALUES (:idPedido, :fechaPedido, :direccionPedido);");
+    $agregarPedido->bindparam(':idPedido', $idPedido);
+    $agregarPedido->bindparam(':fechaPedido', $fechaPedido);
+    $agregarPedido->bindparam(':direccionPedido', $direccionPedido);
     
 
-    if($agregar->execute()){
+    if($agregarPedido->execute()){
       return true;
     }else{
       return false;

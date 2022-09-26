@@ -48,12 +48,13 @@ $modeloPedido=new pedido();
                         <p class="item-desc"><?php echo $pr['descripcionProducto'];?></p>
                         <p class="item-cat"><?php echo $pr['nombreCategoria'];?></p>
                         <p>idPedido:</p>
-                        <p class="item-idPe"><?php
+                        <select class="item-idPe"><?php
                             if ($pedido!=null) {
-                                foreach($pedido as $pe){    
-                                    echo $pe['idPedido'].'<br>';
+                                foreach($pedido as $pe){
+                                        
+                                    echo '<option value="">'.$pe['idPedido'].'</option><br>';
                                 }       
-                        }?></p>
+                        }?></select>
                         <p>IdProducto:</p>
                         <p class="item-idPr"> <?php echo $pr['idProducto'];?></p>
 
@@ -71,7 +72,7 @@ $modeloPedido=new pedido();
 
             
 
-            <form action="../../../Controllers/Pedido/add.php" method="POST">
+            <!-- <form action="../../../Controllers/Pedido/add.php" method="POST">
                 <input type="hidden" name="idPedido">
 
                 <?php date_default_timezone_set('America/Bogota');?>
@@ -82,7 +83,7 @@ $modeloPedido=new pedido();
                 <input type="text" name="direccionPedido">
 
                 <button type="submit"><i class="fa-solid fa-check"></i></button>
-            </form>
+            </form> -->
 
             <!-- <form action="../../../Controllers/Factura/add.php">
                 <input type="hidden" name="idPedido" id="" value="">
@@ -94,23 +95,39 @@ $modeloPedido=new pedido();
 
               
 <!-- END SECTION STORE -->
-<form action="../../../Controllers/Factura/prueba.php" method="POST">g
+
+
+
+<form action="../../../Controllers/Factura/add.php" method="POST">
     <div class="shopping-cart-items shoppingCartItemsContainer">
     </div>
-    <button type="submit">registrar</button>
-</form>
-<hr>
-        <!-- ? END SHOPPING CART ITEMS -->
 
-        <!-- START TOTAL -->
-               
-        <div class="shopping-cart-total">
+    <hr>
+
+    <div class="shopping-cart-total">
                 <p class="">Total</p>
                 <p class="shoppingCartTotal">0$</p>
             <div class="toast ml-auto bg-info" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
             </div>
-                <button class="comprarButton" type="submit">Comprar</button>
-        </div>
+                <button class="comprarButton" type="submit">Vaciar carrito</button>
+    </div>
+
+    <input type="hidden" name="idPedido">
+
+    <?php date_default_timezone_set('America/Bogota');?>
+	<?php $fecha=date('Y-m-d');?>
+    <input type="hidden" name="fechaPedido" id="" value="<?php echo $fecha;?>">
+				
+    <label for="">Direccion Pedido</label>
+    <input type="text" name="direccionPedido" required=""><br>
+
+    <button type="submit">Comprar</button>
+</form>
+        <!-- ? END SHOPPING CART ITEMS -->
+
+        <!-- START TOTAL -->
+               
+        
            
        
 
