@@ -16,51 +16,55 @@ $datosUsuario=$modeloUsuario->consultarxid($id);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuaruio prueba</title>
+
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body>
 
     <h1>Editar Usuario</h1>
 
-    <form  method="POST" action="../../../Controllers/Usuario/edit.php">
+    <form  method="POST" action="../../../Controllers/Usuario/edit.php" id="editar">
 		<?php 
 		if ($datosUsuario !=null) {
 			foreach ($datosUsuario as $datos) {
 	 ?>
 
 	<label>Id :</label>
-	<input type="text" name="idUsuario" placeholder="ingrese su id" value="<?php echo $datos['idUsuario']?>"><br>
+	<input type="text" name="idUsuario"  value="<?php echo $datos['idUsuario']?>"><br>
 
 	<label>Nombre:</label>
-	<input type="text" name="nombreUsuario" placeholder="digite su nombre"  value="<?php echo $datos['nombreUsuario']?>"><br>
+	<input type="text" name="nombreUsuario" value="<?php echo $datos['nombreUsuario']?>"><br>
 
 	<label>Correo:</label>
-	<input type="email" name="correoUsuario" placeholder="digite su correo" value="<?php echo $datos['correoUsuario']?>"><br>
+	<input type="email" name="correoUsuario" value="<?php echo $datos['correoUsuario']?>"><br>
 
-	<label>Contraseña:</label><br>
-	<input type="password" name="passworUsuario" placeholder="digite su contraseña" value="<?php echo $datos['passworUsuario']?>"><br>
+	<label>Contraseña:</label>
+	<input type="password" name="passworUsuario" value="<?php echo $datos['passworUsuario']?>"><br>
 
-	<label>Rol:</label><br>
-	<select name="rolUsuario" id="rol">
+	<label>Rol:</label>
+	<select name="rolUsuario" id="rol" checkdate="<?php echo $datos['rolUsuario']?>">
 			<option value="ninguno">Seleccione un rol</option>
-			<option value="Administrador">Administrador</option>
-			<option value="Cajero">Cajero</option>
-			<option value="Cliente">Cliente</option>
+			<option <?php echo $datos['rolUsuario']==='Administrador' ? "selected='selected'":"" ?> value="Administrador">Administrador</option>
+			<option <?php echo $datos['rolUsuario']==='Cajero' ? "selected='selected'":"" ?>  value="Cajero">Cajero</option>
+			<option <?php echo $datos['rolUsuario']==='Cliente' ? "selected='selected'":"" ?>  value="Cliente">Cliente</option>
 	</select><br>
 
-	<label>Estado:</label><br>
+	<!-- <label>Estado:</label><br>
 
 	<input id="radio" type="radio" name="estadoUsuario" value="1"><b>Activo</b>
-	<input id="radio" type="radio" name="estadoUsuario" value="0"><b>In-activo</b><br>
-
-	<input id="boton" type="submit"value="Actualizar">
-
+	<input id="radio" type="radio" name="estadoUsuario" value="0"><b>In-activo</b><br> -->
 	<?php 
 	
 			}
 		}
 
  	?>
-</form>
+	</form>
+
+	<button onclick="alertaEdit()">Actualizar</button>
+
+<script src="../../resources/js/formulario.js"></script>
     
 </body>
 </html>

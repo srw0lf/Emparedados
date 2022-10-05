@@ -25,7 +25,7 @@ class usuario extends conexion{
 
   public function consultar(){
     $rows=null;
-    $mostrar=$this->db->prepare(" SELECT *FROM usuario;");
+    $mostrar=$this->db->prepare(" SELECT *FROM usuario ORDER BY rolUsuario;");
     $mostrar->execute();
     while($result=$mostrar->fetch()){
       $rows[]=$result;
@@ -36,6 +36,39 @@ class usuario extends conexion{
   public function consultarxid($idUsuario){
     $rows=null;
     $mostrar=$this->db->prepare("SELECT * FROM usuario WHERE idUsuario=:idUsuario;");
+    $mostrar->bindparam(':idUsuario', $idUsuario);
+    $mostrar->execute();
+    while($result=$mostrar->fetch()){
+      $rows[]=$result;
+    }
+    return $rows;
+  }
+
+  public function verAdm($idUsuario){
+    $rows=null;
+    $mostrar=$this->db->prepare("SELECT * FROM usuario AS us JOIN Administrador AS ad ON us.idUsuario=ad.idUsuario_FK WHERE idUsuario=:idUsuario;");
+    $mostrar->bindparam(':idUsuario', $idUsuario);
+    $mostrar->execute();
+    while($result=$mostrar->fetch()){
+      $rows[]=$result;
+    }
+    return $rows;
+  }
+
+  public function verCli($idUsuario){
+    $rows=null;
+    $mostrar=$this->db->prepare("SELECT * FROM usuario AS us JOIN Cliente AS cl ON us.idUsuario=cl.idUsuario_FK WHERE idUsuario=:idUsuario;");
+    $mostrar->bindparam(':idUsuario', $idUsuario);
+    $mostrar->execute();
+    while($result=$mostrar->fetch()){
+      $rows[]=$result;
+    }
+    return $rows;
+  }
+
+  public function verCaj($idUsuario){
+    $rows=null;
+    $mostrar=$this->db->prepare("SELECT * FROM usuario AS us JOIN Cajero AS cj ON us.idUsuario=cj.idUsuario_FK WHERE idUsuario=:idUsuario;");
     $mostrar->bindparam(':idUsuario', $idUsuario);
     $mostrar->execute();
     while($result=$mostrar->fetch()){
@@ -84,6 +117,20 @@ class usuario extends conexion{
       return false;
     }
   }
+
+  public function dinamic($id, $estado){
+    $dinamic=$this->db->prepare("UPDATE usuario SET estadoUsuario=:estado WHERE idUsuario=:id");
+      $dinamic->bindparam(':id',$id);
+      $dinamic->bindparam(':estado',$estado);
+
+      $dinamic->execute();
+  
+      if ($dinamic->execute()) {
+        return true;
+      }else{
+        return false;
+      }
+    }
 
 
 }

@@ -10,7 +10,10 @@
 <body>
 	<h1>Registrar Pedidos</h1>
 
-	<form action="../../../Controllers/Pedido/add.php" method="POST">
+	<?php
+	for ($i=0; $i < 3; $i++) { 
+	?>
+		<form action="../../../Controllers/Pedido/add.php" method="POST" id="eliminar">
                 <input type="hidden" name="idPedido">
 
                 <?php date_default_timezone_set('America/Bogota');?>
@@ -26,5 +29,14 @@
 	<form action="">
 		
 	</form>
+
+	<button onclick="prueba()">Prueba</button>
+	<?php
+	}
+	?>
+
+	
+
+	<script src="../../resources/js/formulario.js"></script>
 </body>
 </html>
