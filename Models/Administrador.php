@@ -8,7 +8,7 @@ class Administrador extends Conexion{
   }
 
   public function agregar($idAdministrador, $nombreAdministrador, $apellidoAdministrador, $telefonoAdministrador, $nitEmpresa){
-    $agregar=$this->db->prepare("INSERT INTO  Administrador (idAdministrador, nombreAdministrador, apellidoAdministrador, telefonoAdministrador, nitEmpresa) VALUES (:idAdministrador, :nombreAdministrador, :apellidoCajero, :telefonoAdministrador, :nitEmpresa);");
+    $agregar=$this->db->prepare("INSERT INTO administrador(idAdministrador, nombreAdministrador, apellidoAdministrador, telefonoAdministrador, nitEmpresa) VALUES(:idAdministrador, :nombreAdministrador, :apellidoAdministrador, :telefonoAdministrador, :nitEmpresa);");
     $agregar->bindparam(':idAdministrador', $idAdministrador);
     $agregar->bindparam(':nombreAdministrador', $nombreAdministrador);
     $agregar->bindparam(':apellidoAdministrador', $apellidoAdministrador);
@@ -71,6 +71,17 @@ class Administrador extends Conexion{
     }else{
       return false;
     }
+  }
+
+  public function verUs($idAdministrador){
+    $rows=null;
+    $mostrar=$this->db->prepare("SELECT * FROM Administrador AS a JOIN usuario AS u ON u.idUsuario=a.idUsuario_FK  WHERE a.idAdministrador=:idAdministrador;");
+    $mostrar->bindparam(':idAdministrador', $idAdministrador);
+    $mostrar->execute();
+    while($result=$mostrar->fetch()){
+      $rows[]=$result;
+    }
+    return $rows;
   }
 
 

@@ -44,14 +44,46 @@ class usuario extends conexion{
     return $rows;
   }
 
-  public function actualizar($idUsuario, $nombreUsuario, $correoUsuario, $passworUsuario, $rolUsuario, $estadoUsuario){
-    $editar=$this->db->prepare("UPDATE usuario SET idUsuario=:idUsuario, nombreUsuario=:nombreUsuario, correoUsuario=:correoUsuario, passworUsuario=:passworUsuario, rolUsuario=:rolUsuario, estadoUsuario=:estadoUsuario WHERE idUsuario=:idUsuario");
+  public function verAdm($idUsuario){
+    $rows=null;
+    $mostrar=$this->db->prepare("SELECT * FROM usuario AS us JOIN Administrador AS ad ON us.idUsuario=ad.idUsuario_FK WHERE idUsuario=:idUsuario;");
+    $mostrar->bindparam(':idUsuario', $idUsuario);
+    $mostrar->execute();
+    while($result=$mostrar->fetch()){
+      $rows[]=$result;
+    }
+    return $rows;
+  }
+
+  public function verCli($idUsuario){
+    $rows=null;
+    $mostrar=$this->db->prepare("SELECT * FROM usuario AS us JOIN Cliente AS cl ON us.idUsuario=cl.idUsuario_FK WHERE idUsuario=:idUsuario;");
+    $mostrar->bindparam(':idUsuario', $idUsuario);
+    $mostrar->execute();
+    while($result=$mostrar->fetch()){
+      $rows[]=$result;
+    }
+    return $rows;
+  }
+
+  public function verCaj($idUsuario){
+    $rows=null;
+    $mostrar=$this->db->prepare("SELECT * FROM usuario AS us JOIN Cajero AS cj ON us.idUsuario=cj.idUsuario_FK JOIN TipoDoc AS tp ON cj.idTipoDoc_FK=tp.idTipoDoc WHERE idUsuario=:idUsuario;");
+    $mostrar->bindparam(':idUsuario', $idUsuario);
+    $mostrar->execute();
+    while($result=$mostrar->fetch()){
+      $rows[]=$result;
+    }
+    return $rows;
+  }
+
+  public function actualizar($idUsuario, $nombreUsuario, $correoUsuario, $passworUsuario, $rolUsuario){
+    $editar=$this->db->prepare("UPDATE usuario SET idUsuario=:idUsuario, nombreUsuario=:nombreUsuario, correoUsuario=:correoUsuario, passworUsuario=:passworUsuario, rolUsuario=:rolUsuario WHERE idUsuario=:idUsuario");
     $editar->bindparam(':idUsuario', $idUsuario);
     $editar->bindparam(':nombreUsuario', $nombreUsuario);
     $editar->bindparam(':correoUsuario', $correoUsuario);
     $editar->bindparam(':passworUsuario', $passworUsuario);
     $editar->bindparam(':rolUsuario', $rolUsuario);
-    $editar->bindparam(':estadoUsuario', $estadoUsuario);  
     if($editar->execute()){
       return true;
     }else{
@@ -84,6 +116,20 @@ class usuario extends conexion{
       return false;
     }
   }
+
+  public function dinamic($id, $estado){
+    $dinamic=$this->db->prepare("UPDATE usuario SET estadoUsuario=:estado WHERE idUsuario=:id");
+      $dinamic->bindparam(':id',$id);
+      $dinamic->bindparam(':estado',$estado);
+
+      $dinamic->execute();
+  
+      if ($dinamic->execute()) {
+        return true;
+      }else{
+        return false;
+      }
+    }
 
 
 }

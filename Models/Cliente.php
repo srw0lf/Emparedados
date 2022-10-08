@@ -43,6 +43,17 @@ class Cliente extends Conexion{
     return $rows;
   }
 
+  public function verUs($idCliente){
+    $rows=null;
+    $mostrar=$this->db->prepare("SELECT * FROM Cliente AS c JOIN usuario AS u ON u.idUsuario=c.idUsuario_FK JOIN WHERE c.idCliente=:idCliente;");
+    $mostrar->bindparam(':idCliente', $idCliente);
+    $mostrar->execute();
+    while($result=$mostrar->fetch()){
+      $rows[]=$result;
+    }
+    return $rows;
+  }
+
   public function actualizar($idCliente, $nombreCliente, $apellidoCliente, $direccionCliente, $telefonoCliente){
     $editar=$this->db->prepare("UPDATE Cliente SET idCliente=:idCliente, nombreCliente=:nombreCliente, apellidoCliente=:apellidoCliente, direccionCliente=:direccionCliente, telefonoCliente=:telefonoCliente WHERE idCliente=:idCliente;");
     $editar->bindparam(':idCliente', $idCliente);

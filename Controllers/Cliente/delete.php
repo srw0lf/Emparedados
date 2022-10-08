@@ -1,11 +1,11 @@
 <?php 
 require_once('../../Models/Cliente.php');
 
-if($_POST){
-		$idCliente=$_POST['idCliente'];
+if($_GET){
+	echo $id=$_GET['id'];
 		
 		$modeloCliente=new cliente();
-		$eliminar=$modeloCliente->delete($idCliente);
+		$eliminar=$modeloCliente->delete($id);
 
 		if($eliminar){
 			echo "<script> window.location='../../Views/templates/Cliente/list.php'; </script>";

@@ -10,7 +10,11 @@ if($_POST){
         $descripcionProducto=$_POST['descripcionProducto'];
 		$estadoProducto=$_POST['estadoProducto'];
 		$idCategoria_FK=$_POST['idCategoria_FK'];
-		$foto=$_FILES['foto']['name'];
+		if ($_FILES!=null) {
+			$foto=$_FILES['foto']['name'];
+		}else{
+			$foto=$_POST['foto'];			
+		}
 
 		if (isset($_FILES['foto'])) {
 

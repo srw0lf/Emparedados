@@ -1,11 +1,11 @@
 <?php 
 require_once('../../Models/Producto.php');
 
-if($_POST){
-		$idProducto=$_POST['idProducto'];
+if($_GET){
+	echo $id=$_GET['id'];
 		
 		$modeloProducto=new producto();
-		$eliminar=$modeloProducto->delete($idProducto);
+		$eliminar=$modeloProducto->delete($id);
 
 		if($eliminar){
 			echo "<script> window.location='../../Views/templates/Producto/listAdm.php'; </script>";

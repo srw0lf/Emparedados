@@ -112,7 +112,7 @@ $modeloPedido=new pedido();
                 <button class="comprarButton" type="submit">Vaciar carrito</button>
     </div>
 
-    <input type="hidden" name="idPedido">
+    <input type="text" name="idPedido">
 
     <?php date_default_timezone_set('America/Bogota');?>
 	<?php $fecha=date('Y-m-d');?>

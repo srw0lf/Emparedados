@@ -10,7 +10,7 @@
 
     <h1>Agregar Usuario</h1>
 
-    <form method="POST" action="#" enctype="multipart/form-data">
+    <form method="POST" action="../../../Controllers/Usuario/add.php" enctype="multipart/form-data">
     <input type="hidden" name="idUsuario"><br>
 
     <label>Nombre</label>

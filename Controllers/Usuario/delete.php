@@ -1,11 +1,11 @@
 <?php 
 require_once('../../Models/Usuario.php');
 
-if($_POST){
-		$idUsuario=$_POST['idUsuario'];
+if($_GET){
+		echo $id=$_GET['id'];
 		
 		$modeloUsuario=new usuario();
-		$eliminar=$modeloUsuario->delete($idUsuario);
+		$eliminar=$modeloUsuario->delete($id);
 
 		if($eliminar){
 			header('Location:../../Views/templates/Usuario/list.php');

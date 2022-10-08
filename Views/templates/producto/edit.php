@@ -15,12 +15,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emparedados</title>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 
     <h1>Editar Producto</h1>
 
-    <form action="../../../Controllers/Producto/edit.php" method="post">
+    <form action="../../../Controllers/Producto/edit.php" method="post" id="editar">
 
     <?php 
 		if ($datosProducto !=null) {
@@ -51,7 +53,7 @@
                     if ($categoria!=null) {
                     foreach($categoria as $ct){ 
                 ?>
-                <option value="<?php echo $ct['idCategoria'];?>"><?php echo $ct['nombreCategoria'];?></option>
+                <option <?php echo $datos['idCategoria_FK']===$ct['idCategoria'] ? "selected='selected'":""?> value="<?php echo $ct['idCategoria'];?>"><?php echo $ct['nombreCategoria'];?></option>
                 <?php 
                     }
                 }
@@ -61,12 +63,12 @@
 
             <input type="file" name="foto"><br>
 
-            <label for="txt">Estado del producto</label>
+            <!-- <label for="txt">Estado del producto</label>
             <input type="radio" name="estadoProducto" id="estado" value="1"><label for="">activo</label>
 
             <input type="radio" name="estadoProducto" id="estado" value="0"><label for="">in-activo</label>
 
-            <input id="boton" type="submit"value="Actualizar">
+            <input id="boton" type="submit"value="Actualizar"> -->
 
     	<?php 
 	
@@ -75,5 +77,11 @@
 
  	?>
     </form>
+
+    <input type="hidden" class="redirect" value="producto"><br>
+
+    <button onclick="alertaEdit()">Actualizar</button>
+
+    <script src="../../resources/js/formulario.js"></script>
 </body>
 </html>

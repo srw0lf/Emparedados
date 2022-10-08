@@ -8,13 +8,12 @@ if($_POST){
       $fechaCaducidad=$_POST['fechaCaducidad'];
       $precioUnidad=$_POST['precioUnidad'];
       $descripcionProducto=$_POST['descripcionProducto'];
-      $estadoProducto=$_POST['estadoProducto'];
       $idCategoria_FK=$_POST['idCategoria_FK'];
 
 		
     $modeloProducto=new producto();
 
-    $actualizar=$modeloProducto->actualizar($idProducto, $nombreProducto, $cantidadProducto, $fechaCaducidad, $precioUnidad, $descripcionProducto, $estadoProducto, $idCategoria_FK);
+    $actualizar=$modeloProducto->actualizar($idProducto, $nombreProducto, $cantidadProducto, $fechaCaducidad, $precioUnidad, $descripcionProducto, $idCategoria_FK);
 
 		if($actualizar){
                   echo "<script> window.location='../../Views/templates/Producto/listAdm.php'; </script>";

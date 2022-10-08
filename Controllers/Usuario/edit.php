@@ -7,10 +7,9 @@ if($_POST){
 		$correoUsuario=$_POST['correoUsuario'];
 		$passworUsuario=$_POST['passworUsuario'];
 		$rolUsuario=$_POST['rolUsuario'];
-		$estadoUsuario=$_POST['estadoUsuario'];
 
 		$modeloUsuario=new usuario();
-		$actualizar=$modeloUsuario->actualizar($idUsuario, $nombreUsuario, $correoUsuario, $passworUsuario, $rolUsuario, $estadoUsuario);
+		$actualizar=$modeloUsuario->actualizar($idUsuario, $nombreUsuario, $correoUsuario, $passworUsuario, $rolUsuario);
 
 		if($actualizar){
 			header('Location:../../Views/templates/Usuario/list.php');

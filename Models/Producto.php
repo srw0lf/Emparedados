@@ -48,15 +48,25 @@ class Producto extends Conexion{
     return $rows;
   }
 
-  public function actualizar($idProducto, $nombreProducto, $cantidadProducto, $fechaCaducidad, $precioUnidad, $descripcionProducto, $estadoProducto, $idCategoria_FK){
-    $editar=$this->db->prepare("UPDATE Producto SET idProducto=:idProducto, nombreProducto=:nombreProducto, cantidadProducto=:cantidadProducto,fechaCaducidad=:fechaCaducidad, precioUnidad=:precioUnidad, descripcionProducto=:descripcionProducto, estadoProducto=:estadoProducto, idCategoria_FK=:idCategoria_FK WHERE idProducto=:idProducto;");
+  public function verCat($idProducto){
+    $rows=null;
+    $mostrar=$this->db->prepare("SELECT * FROM Producto AS p JOIN Cateforia AS c ON p.idCategoria_FK=c.idCategoria  WHERE p.idProducto=:idProducto;");
+    $mostrar->bindparam(':idProducto', $idProducto);
+    $mostrar->execute();
+    while($result=$mostrar->fetch()){
+      $rows[]=$result;
+    }
+    return $rows;
+  }
+
+  public function actualizar($idProducto, $nombreProducto, $cantidadProducto, $fechaCaducidad, $precioUnidad, $descripcionProducto, $idCategoria_FK){
+    $editar=$this->db->prepare("UPDATE Producto SET idProducto=:idProducto, nombreProducto=:nombreProducto, cantidadProducto=:cantidadProducto,fechaCaducidad=:fechaCaducidad, precioUnidad=:precioUnidad, descripcionProducto=:descripcionProducto, idCategoria_FK=:idCategoria_FK WHERE idProducto=:idProducto;");
     $editar->bindparam(':idProducto', $idProducto);
     $editar->bindparam(':nombreProducto', $nombreProducto);
     $editar->bindparam(':cantidadProducto', $cantidadProducto);
     $editar->bindparam(':fechaCaducidad', $fechaCaducidad);
     $editar->bindparam(':precioUnidad', $precioUnidad);
     $editar->bindparam(':descripcionProducto', $descripcionProducto);
-    $editar->bindparam(':estadoProducto', $estadoProducto);
     $editar->bindparam(':idCategoria_FK', $idCategoria_FK); 
     if($editar->execute()){
       return true;
@@ -76,6 +86,20 @@ class Producto extends Conexion{
       return false;
     }
   }
+
+  public function dinamic($id, $estado){
+    $dinamic=$this->db->prepare("UPDATE Producto SET estadoProducto=:estado WHERE idProducto=:id");
+      $dinamic->bindparam(':id',$id);
+      $dinamic->bindparam(':estado',$estado);
+
+      $dinamic->execute();
+  
+      if ($dinamic->execute()) {
+        return true;
+      }else{
+        return false;
+      }
+    }
 
 
 }

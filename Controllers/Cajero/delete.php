@@ -1,11 +1,11 @@
 <?php 
 require_once('../../Models/Cajero.php');
 
-if($_POST){
-		$idCajero=$_POST['idCajero'];
+if($_GET){
+		echo $id=$_GET['id'];
 		
 		$modeloCajero=new cajero();
-		$eliminar=$modeloCajero->delete($idCajero);
+		$eliminar=$modeloCajero->delete($id);
 
 		if($eliminar){
 			echo "<script> window.location='../../Views/templates/Cajero/list.php'; </script>";

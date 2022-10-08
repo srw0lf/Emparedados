@@ -46,6 +46,17 @@ class Cajero extends Conexion{
     return $rows;
   }
 
+  public function verUs($idCajero){
+    $rows=null;
+    $mostrar=$this->db->prepare("SELECT * FROM Cajero AS c JOIN usuario AS u ON u.idUsuario=c.idUsuario_FK WHERE c.idCajero=:idCajero;");
+    $mostrar->bindparam(':idCajero', $idCajero);
+    $mostrar->execute();
+    while($result=$mostrar->fetch()){
+      $rows[]=$result;
+    }
+    return $rows;
+  }
+
   public function actualizar($idCajero, $nombreCajero, $apellidoCajero, $direccionCajero, $telefonoCajero, $numeroTipoDoc, $idTipoDoc_FK){
     $editar=$this->db->prepare("UPDATE Cajero SET idCajero=:idCajero, nombreCajero=:nombreCajero, apellidoCajero=:apellidoCajero, direccionCajero=:direccionCajero, telefonoCajero=:telefonoCajero, numeroTipoDoc=:numeroTipoDoc, idTipoDoc_FK=:idTipoDoc_FK WHERE idCajero=:idCajero;");
     $editar->bindparam(':idCajero', $idCajero);

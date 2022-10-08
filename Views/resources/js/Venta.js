@@ -74,11 +74,11 @@ function addItemToShoppingCart(itemTitle, itemPrice, itemImage, itemDesc, itemCa
 
     <div class="shopping-cart-quantity">
     <label for="">Cantidad:</label>
-      <input class="shopping-cart-quantity-input shoppingCartItemQuantity" type="number" value="1" name="cantidad">
+      <input class="shopping-cart-quantity-input shoppingCartItemQuantity" type="number" value="1" name="cantidad[]">
     </div>
 
     <!--<label for="">IdProducto:</label>-->
-    <input type="text" name="idProducto_FK" value="${itemIdPr}">
+    <input type="text" name="idProducto_FK[]" value="${itemIdPr}">
 
     <button class="btn btn-danger buttonDelete" type="button">X Remove</button>
   </div>`;

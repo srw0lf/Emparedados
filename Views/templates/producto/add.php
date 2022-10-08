@@ -53,7 +53,7 @@ $modeloCategoria=new categoria();
 
         </select><br>
 
-        <input type="file" name="foto"><br>
+        <input type="file" name="foto" value='imgDefecto.png'><br>
 
         <label for="txt">Estado del producto</label>
         <input type="radio" name="estadoProducto" id="estado" value="1"><label for="">activo</label>
