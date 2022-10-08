@@ -41,7 +41,7 @@ $modeloCajero=new cajero();
             <th>Número de documento</th>
             <th>Telefono/ número celular</th>
             <!-- <th>Usuario</th> -->
-            <th><a  href="add.php">Registrar Nuevo</a></th>
+            <th><a type="button" class="btn btn-outline-success" href="add.php">Registrar Nuevo</a></th>
         </tr>
         <tr>
             <?php $cajero=$modeloCajero->consultar();  
@@ -64,11 +64,11 @@ $modeloCajero=new cajero();
                 </a>
 
                 <a type="button" class="btn btn-outline-info" href="ver.php?id=<?php echo $ca['idCajero']; ?>">
-                    <i class="bi bi-eye"></i> 
+                    <i class="fa-solid fa-eye"></i> 
                 </a>
                 
                 <a type="button" class="btn btn-outline-danger"onclick="borrar(event,'<?php echo $ca['idCajero']?>')">
-                    <i class="bi bi-trash"></i>
+                    <i class="fa-solid fa-trash"></i>
                     <input type="hidden" class="redirect" value="Cajero">
                 </a>
             </td>

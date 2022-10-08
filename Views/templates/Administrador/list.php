@@ -37,7 +37,7 @@ $modeloAdministrador=new administrador();
 		<th>Apellidos</th>
 		<th>Teléfono</th>
 		<th>Nit</th>
-		<th><a href="add.php">Registrar Nuevo</a></th>
+		<th><a type="button" class="btn btn-outline-success" href="add.php">Registrar Nuevo</a></th>
 		<tr>
 		<?php $Administrador=$modeloAdministrador->consultar(); 
 		if ($Administrador!=null) {
@@ -55,11 +55,11 @@ $modeloAdministrador=new administrador();
                 </a>
 
                 <a type="button" class="btn btn-outline-info" href="ver.php?id=<?php echo $adm['idAdministrador']; ?>">
-                    <i class="bi bi-eye"></i> 
+                    <i class="fa-solid fa-eye"></i> 
                 </a>
                 
                 <a type="button" class="btn btn-outline-danger"onclick="borrar(event,'<?php echo $adm['idAdministrador']?>')">
-                    <i class="bi bi-trash"></i>
+                    <i class="fa-solid fa-trash"></i>
                     <input type="hidden" class="redirect" value="Administrador">
                 </a>
         		</td>
