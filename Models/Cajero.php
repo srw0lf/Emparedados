@@ -35,9 +35,9 @@ class Cajero extends Conexion{
     return $rows;
   }
 
-  public function cosnsultarxid($idCajero){
+  public function consultarxid($idCajero){
     $rows=null;
-    $mostrar=$this->db->prepare("SELECT * FROM Cajero WHERE idCajero=:idCajero;");
+    $mostrar=$this->db->prepare("SELECT * FROM Cajero AS cj JOIN TipoDoc AS tp ON cj.idTipoDoc_FK=tp.idTipoDoc WHERE idCajero=:idCajero;");
     $mostrar->bindparam(':idCajero', $idCajero);
     $mostrar->execute();
     while($result=$mostrar->fetch()){
@@ -48,7 +48,7 @@ class Cajero extends Conexion{
 
   public function verUs($idCajero){
     $rows=null;
-    $mostrar=$this->db->prepare("SELECT * FROM Cajero AS c JOIN usuario AS u ON u.idUsuario=c.idUsuario_FK WHERE c.idCajero=:idCajero;");
+    $mostrar=$this->db->prepare("SELECT * FROM Cajero AS c JOIN usuario AS u ON u.idUsuario=c.idUsuario_FK JOIN TipoDoc AS tp ON c.idTipoDoc_FK=tp.idTipoDoc WHERE c.idCajero=:idCajero;");
     $mostrar->bindparam(':idCajero', $idCajero);
     $mostrar->execute();
     while($result=$mostrar->fetch()){

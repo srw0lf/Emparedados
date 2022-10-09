@@ -1,6 +1,6 @@
 <?php 
-require_once('../../../Models/Administrador.php');
-$modeloAdministrador=new administrador();
+require_once('../../../Models/Cajero.php');
+$modeloCajero=new cajero();
 
 if ($_GET) {
     $id=$_GET['id'];
@@ -40,24 +40,28 @@ if ($_GET) {
 </head>
 <body>
 
-    <h1>Ver Administrador</h1>
+    <h1>Ver Cajero</h1>
 
     <?php
-        $datosAdministrador=$modeloAdministrador->consultarxid($id);  
-		if ($datosAdministrador !=null) {
-			foreach ($datosAdministrador as $datos) {
+        $datosCajero=$modeloCajero->consultarxid($id);  
+		if ($datosCajero !=null) {
+			foreach ($datosCajero as $datos) {
     ?>
 
     <p>
-    <b>Id: </b><?php echo $datos['idAdministrador']?><br>
+    <b>Id: </b><?php echo $datos['idCajero']?><br>
 
-    <b>Nombre: </b><?php echo $datos['nombreAdministrador']?><br>
+    <b>Nombre: </b><?php echo $datos['nombreCajero']?><br>
 
-    <b>Apelllido: </b><?php echo $datos['apellidoAdministrador']?><br>
+    <b>Apelllido: </b><?php echo $datos['apellidoCajero']?><br>
 
-    <b>Telefono: </b><?php echo $datos['telefonoAdministrador']?><br>
+    <b>Telefono: </b><?php echo $datos['telefonoCajero']?><br>
 
-    <b>nit: </b><?php echo $datos['nitEmpresa']?><br>
+    <b>Direccion: </b><?php echo $datos['direccionCajero']?><br>
+
+    <b>Tipo de documento: </b><?php echo $datos['nombreTipoDoc']?><br>
+
+    <b>Numero de documento: </b><?php echo $datos['numeroTipoDoc']?><br>
     
     </p>
     
@@ -69,9 +73,9 @@ if ($_GET) {
     <h1>Datos Usuario</h1>
 
 	<?php 
-        $datosAdministrador=$modeloAdministrador->verUs($id); 
-		if ($datosAdministrador !=null) {
-			foreach ($datosAdministrador as $datos) {
+        $datosCajero=$modeloCajero->verUs($id); 
+		if ($datosCajero !=null) {
+			foreach ($datosCajero as $datos) {
 	?>
 
     <p>
@@ -98,7 +102,7 @@ if ($_GET) {
 	<?php 
                 }
 			}else{
-                echo '<p>No hay usuarios afilidados a este administrador</p>';
+                echo '<p>No hay administradores afilidados a este usuario</p>';
             }
     ?>
 

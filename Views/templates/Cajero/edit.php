@@ -2,7 +2,7 @@
 	require_once('../../../Models/Cajero.php');
 	$modeloCajero=new Cajero();
 	$id=$_GET['id'];
-	$datosCajero=$modeloCajero->cosnsultarxid($id);
+	$datosCajero=$modeloCajero->consultarxid($id);
 
     require_once('../../../Models/TipoDoc.php');
     $modeloTipoDoc=new tipoDoc();
@@ -87,9 +87,9 @@
  	?>
     </form>
 
-    <input type="hidden" class="redirect" value="Cajero">
+    <input type="hidden"  class="redirect" value="Cajero">
 
-    <button onclick="aletaEdit()">Actualizar</button>
+    <button onclick="alertaEdit()">Actualizar</button>
 
     <script src="../../resources/js/formulario.js"></script>
 </body>
