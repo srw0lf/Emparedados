@@ -31,7 +31,7 @@ $modeloCliente=new cliente();
 
     <h1>Clientes Registrados</h1>
 
-    <table width="100%">
+    <table width="100%" id="datat">
         <tr>
             <th>ID</th>
             <th>Nombre(s)</th>
@@ -75,5 +75,25 @@ $modeloCliente=new cliente();
         ?>
         
     </table>
+
+    <script>
+
+        var datat=document.querySelector("#datat"); 
+        var dataTable=new DataTable("#datat",{ 
+          perPage:10,
+          labels: {
+              placeholder: "Buscar por palabra clave...",
+              perPage: "{select} Seleccionar numero de resultados",
+              noRows: "No se encontraron registros",
+              info: "Mostrando {start} a {end} de {rows} registros",
+          }
+        } ) ;
+        
+        
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+    <script src="../../resources/js/formulario.js"></script>
 </body>
 </html>

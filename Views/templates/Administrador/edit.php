@@ -2,7 +2,7 @@
 	require_once('../../../Models/Administrador.php');
 	$modeloAdministrador=new administrador();
 	$id=$_GET['id'];
-	$datosAdministrador=$modeloAdministrador->cosnsultarxid($id);
+	$datosAdministrador=$modeloAdministrador->consultarxid($id);
 ?>
 
 <!DOCTYPE html>

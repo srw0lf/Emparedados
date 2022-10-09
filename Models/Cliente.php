@@ -32,7 +32,7 @@ class Cliente extends Conexion{
     return $rows;
   }
 
-  public function cosnsultarxid($idCliente){
+  public function consultarxid($idCliente){
     $rows=null;
     $mostrar=$this->db->prepare("SELECT * FROM Cliente WHERE idCliente=:idCliente;");
     $mostrar->bindparam(':idCliente', $idCliente);
@@ -45,7 +45,7 @@ class Cliente extends Conexion{
 
   public function verUs($idCliente){
     $rows=null;
-    $mostrar=$this->db->prepare("SELECT * FROM Cliente AS c JOIN usuario AS u ON u.idUsuario=c.idUsuario_FK JOIN WHERE c.idCliente=:idCliente;");
+    $mostrar=$this->db->prepare("SELECT * FROM Cliente AS c JOIN usuario AS u ON u.idUsuario=c.idUsuario_FK  WHERE c.idCliente=:idCliente;");
     $mostrar->bindparam(':idCliente', $idCliente);
     $mostrar->execute();
     while($result=$mostrar->fetch()){

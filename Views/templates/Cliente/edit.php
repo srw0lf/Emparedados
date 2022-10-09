@@ -2,7 +2,7 @@
 	require_once('../../../Models/Cliente.php');
 	$modeloCliente=new cliente();
 	$id=$_GET['id'];
-	$datosCliente=$modeloCliente->cosnsultarxid($id);
+	$datosCliente=$modeloCliente->consultarxid($id);
 
     // require_once('../../../Models/Cliente.php');
     // $modeloUsuario=new usuario();
@@ -50,9 +50,6 @@
 
         <label for="apellido">Apellido(s):</label>
         <input type="text" name="apellidoCliente" id="apellido" value="<?php echo $datos['apellidoCliente']?>"><br>
-
-        <label for="adress">Dirección:</label>
-        <input type="text" name="direccionCliente" id="direccion" value="<?php echo $datos['direccionCliente']?>"><br>
 
         <label for="number">Telefono/ número celular:</label>
         <input type="number" name="telefonoCliente" id="telefono" value="<?php echo $datos['telefonoCliente']?>"><br>
