@@ -50,7 +50,7 @@ class Producto extends Conexion{
 
   public function verCat($idProducto){
     $rows=null;
-    $mostrar=$this->db->prepare("SELECT * FROM Producto AS p JOIN Cateforia AS c ON p.idCategoria_FK=c.idCategoria  WHERE p.idProducto=:idProducto;");
+    $mostrar=$this->db->prepare("SELECT * FROM Producto AS p JOIN Categoria AS c ON p.idCategoria_FK=c.idCategoria  WHERE p.idProducto=:idProducto;");
     $mostrar->bindparam(':idProducto', $idProducto);
     $mostrar->execute();
     while($result=$mostrar->fetch()){
