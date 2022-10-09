@@ -13,17 +13,14 @@ if($_POST){
 
 
 	if($_POST){
-
-			$idPedido_FK=$_POST['idPedido'];
 			$idProducto_FK=$_POST['idProducto_FK'];
 			$cantidad=$_POST['cantidad'];
 		
 		for ($i=0; $i < sizeof ($idProducto_FK) ; $i++){ 
 
-			 $modeloFactura=new factura();
-			 $agregar=$modeloFactura->agregar($idPedido_FK, $idProducto_FK[$i], $cantidad[$i]);
-			 $editar=$modeloFactura->editar();
-		
+			$modeloFactura=new factura();
+			$agregar=$modeloFactura->agregar($idProducto_FK[$i], $cantidad[$i]);
+    		$actualizarTot=$modeloFactura->actualizarTot();
 		}
 
 			if($agregar){

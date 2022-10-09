@@ -20,9 +20,9 @@ class Factura extends Conexion{
     }
   }
 
-  public function editar(){
+  public function actualizarTot(){
     $editar=$this->db->prepare("UPDATE Factura as f join Producto as p on f.idProducto_FK=p.idProducto set 
-    total=(f.cantidad*p.precioUnidad);");
+    total=(f.cantidad*p.precioUnidad) WHERE idFactura=(SELECT * FROM conteoId2);");
   
     if($editar->execute()){
       return true;

@@ -8,7 +8,7 @@ class Pedido extends Conexion{
   }
 
   public function agregarPedido($fechaPedido, $direccionPedido){
-    $agregarPedido=$this->db->prepare("INSERT INTO  Pedido (fechaPedido, direccionPedido) VALUES (:idPedido, :fechaPedido, :direccionPedido);");
+    $agregarPedido=$this->db->prepare("INSERT INTO  Pedido (fechaPedido, direccionPedido) VALUES (:fechaPedido, :direccionPedido);");
     $agregarPedido->bindparam(':fechaPedido', $fechaPedido);
     $agregarPedido->bindparam(':direccionPedido', $direccionPedido);
     

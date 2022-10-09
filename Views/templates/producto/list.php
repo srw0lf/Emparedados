@@ -120,6 +120,13 @@ $modeloPedido=new pedido();
 
     <hr>
 
+    <?php date_default_timezone_set('America/Bogota');?>
+	<?php $fecha=date('Y-m-d');?>
+    <input type="hidden" name="fechaPedido" id="" value="<?php echo $fecha;?>">
+				
+    <label for="">Direccion Pedido</label>
+    <input type="text" name="direccionPedido" required=""><br>
+
     <div class="shopping-cart-total">
                 <p class="">Total</p>
                 <p class="shoppingCartTotal">0$</p>
@@ -127,15 +134,6 @@ $modeloPedido=new pedido();
             </div>
                 <button class="comprarButton" type="submit">Vaciar carrito</button>
     </div>
-
-    <input type="text" name="idPedido">
-
-    <?php date_default_timezone_set('America/Bogota');?>
-	<?php $fecha=date('Y-m-d');?>
-    <input type="hidden" name="fechaPedido" id="" value="<?php echo $fecha;?>">
-				
-    <label for="">Direccion Pedido</label>
-    <input type="text" name="direccionPedido" required=""><br>
 
     <button type="submit">Comprar</button>
 </form>
