@@ -2,7 +2,7 @@
 	require_once('../../../Models/Categoria.php');
 	$modeloCategoria=new categoria();
 	$id=$_GET['id'];
-	$datosCategoria=$modeloCategoria->cosnsultarxid($id);
+	$datosCategoria=$modeloCategoria->consultarxid($id);
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +62,7 @@
 
     <input type="hidden" class="redirect" value="Categoria">
 
-    <button onclick="aletaEdit()">Actualizar</button>
+    <button onclick="alertaEdit()">Actualizar</button>
 
     <script src="../../resources/js/formulario.js"></script>
 </body>

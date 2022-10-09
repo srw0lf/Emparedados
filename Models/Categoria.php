@@ -30,9 +30,20 @@ class Categoria extends Conexion{
     return $rows;
   }
 
-  public function cosnsultarxid($idCategoria){
+  public function consultarxid($idCategoria){
     $rows=null;
     $mostrar=$this->db->prepare("SELECT * FROM Categoria WHERE idCategoria=:idCategoria;");
+    $mostrar->bindparam(':idCategoria', $idCategoria);
+    $mostrar->execute();
+    while($result=$mostrar->fetch()){
+      $rows[]=$result;
+    }
+    return $rows;
+  }
+
+  public function verPro($idCategoria){
+    $rows=null;
+    $mostrar=$this->db->prepare("SELECT * FROM Categoria AS c JOIN Producto AS p ON c.idCategoria=p.idCategoria_FK WHERE idCategoria=:idCategoria;");
     $mostrar->bindparam(':idCategoria', $idCategoria);
     $mostrar->execute();
     while($result=$mostrar->fetch()){

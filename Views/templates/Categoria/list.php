@@ -36,7 +36,7 @@ $modeloCategoria=new categoria();
             <th>ID</th>
             <th>Nombre</th>
             <th>Descripcion</th>
-            <th><a type="button" class="btn btn-outline-primary"  href="add.php">Registrar Nuevo</a></th>
+            <th colspan="3"><a type="button" class="btn btn-outline-primary"  href="add.php">Registrar Nuevo</a></th>
         </tr>
         <tr>
             <?php $categoria=$modeloCategoria->consultar(); 
@@ -52,11 +52,13 @@ $modeloCategoria=new categoria();
                 <a type="button" class="btn btn-outline-primary" href="edit.php?id=<?php echo $ct['idCategoria']; ?>">
                     <i class="fa-solid fa-pen-to-square"></i>
                 </a>
-
+            </td>
+            <td>
                 <a type="button" class="btn btn-outline-info" href="ver.php?id=<?php echo $ct['idCategoria']; ?>">
-                    <i class="fa-solid fa-eye"></i> 
+                    <i class="fa-solid fa-eye"></i>
                 </a>
-                
+            </td>
+            <td>
                 <a type="button" class="btn btn-outline-danger"onclick="borrar(event,'<?php echo $ct['idCategoria']?>')">
                     <i class="fa-solid fa-trash"></i>
                     <input type="hidden" class="redirect" value="Categoria">
