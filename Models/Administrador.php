@@ -23,7 +23,7 @@ class Administrador extends Conexion{
 
 
 
-  public function cosnsultarxid($idAdministrador){
+  public function consultarxid($idAdministrador){
     $rows=null;
     $mostrar=$this->db->prepare("SELECT * FROM Administrador WHERE idAdministrador=:idAdministrador;");
     $mostrar->bindparam(':idAdministrador', $idAdministrador);

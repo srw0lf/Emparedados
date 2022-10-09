@@ -37,7 +37,7 @@ $modeloAdministrador=new administrador();
 		<th>Apellidos</th>
 		<th>Teléfono</th>
 		<th>Nit</th>
-		<th><a type="button" class="btn btn-outline-success" href="add.php">Registrar Nuevo</a></th>
+		<th colspan="3"><a type="button" class="btn btn-outline-success" href="add.php">Registrar Nuevo</a></th>
 		<tr>
 		<?php $Administrador=$modeloAdministrador->consultar(); 
 		if ($Administrador!=null) {
@@ -50,19 +50,21 @@ $modeloAdministrador=new administrador();
 		<td><?php echo $adm['telefonoAdministrador'];?></td>
 		<td><?php echo $adm['nitEmpresa'];?></td>
 		<td>
-                <a type="button" class="btn btn-outline-primary" href="edit.php?id=<?php echo $adm['idAdministrador']; ?>">
-                    <i class="fa-solid fa-pen-to-square"></i>
-                </a>
-
-                <a type="button" class="btn btn-outline-info" href="ver.php?id=<?php echo $adm['idAdministrador']; ?>">
-                    <i class="fa-solid fa-eye"></i> 
-                </a>
-                
-                <a type="button" class="btn btn-outline-danger"onclick="borrar(event,'<?php echo $adm['idAdministrador']?>')">
-                    <i class="fa-solid fa-trash"></i>
-                    <input type="hidden" class="redirect" value="Administrador">
-                </a>
-        		</td>
+            <a type="button" class="btn btn-outline-primary" href="edit.php?id=<?php echo $adm['idAdministrador']; ?>">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+        </td>
+        <td>
+            <a type="button" class="btn btn-outline-info" href="ver.php?id=<?php echo $adm['idAdministrador']; ?>">
+                <i class="fa-solid fa-eye"></i>
+            </a>
+        </td>
+        <td>
+            <a type="button" class="btn btn-outline-danger"onclick="borrar(event,'<?php echo $adm['idAdministrador']?>')">
+                <i class="fa-solid fa-trash"></i>
+                <input type="hidden" class="redirect" value="Administrador">
+            </a>
+        </td>
 	</tr>
 	<?php 
         }
