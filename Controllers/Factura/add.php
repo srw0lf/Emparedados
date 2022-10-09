@@ -4,12 +4,11 @@ require_once('../../Models/Factura.php');
 require_once('../../Models/Pedido.php');
 
 if($_POST){
-	$idPedido=$_POST['idPedido'];
 	$fechaPedido=$_POST['fechaPedido'];
 	$direccionPedido=$_POST['direccionPedido'];
 
  	$modeloPedido=new pedido();
- 	$agregarPedido=$modeloPedido->agregarPedido($idPedido, $fechaPedido, $direccionPedido);
+ 	$agregarPedido=$modeloPedido->agregarPedido($fechaPedido, $direccionPedido);
  }
 
 
@@ -23,6 +22,7 @@ if($_POST){
 
 			 $modeloFactura=new factura();
 			 $agregar=$modeloFactura->agregar($idPedido_FK, $idProducto_FK[$i], $cantidad[$i]);
+			 $editar=$modeloFactura->editar();
 		
 		}
 

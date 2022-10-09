@@ -51,9 +51,6 @@ $datosUsuario=$modeloUsuario->consultarxid($id);
 			<option <?php echo $datos['rolUsuario']==='Cliente' ? "selected='selected'":"" ?>  value="Cliente">Cliente</option>
 	</select><br>
 
-	<!-- <label>Estado:</label><br>
-	<input id="radio" type="radio" name="estadoUsuario" value="1"><b>Activo</b>
-	<input id="radio" type="radio" name="estadoUsuario" value="0"><b>In-activo</b><br> -->
 	<?php 
 	
 			}
@@ -66,7 +63,7 @@ $datosUsuario=$modeloUsuario->consultarxid($id);
 
 	<button onclick="alertaEdit()">Actualizar</button>
 
-<script src="../../resources/js/formulario.js"></script>
+	<script src="../../resources/js/formulario.js"></script>
     
 </body>
 </html>

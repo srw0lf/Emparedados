@@ -25,7 +25,7 @@ class usuario extends conexion{
 
   public function consultar(){
     $rows=null;
-    $mostrar=$this->db->prepare(" SELECT *FROM usuario;");
+    $mostrar=$this->db->prepare(" SELECT *FROM usuario ORDER BY rolUsuario;");
     $mostrar->execute();
     while($result=$mostrar->fetch()){
       $rows[]=$result;

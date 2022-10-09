@@ -41,7 +41,7 @@ $modeloUsuario=new usuario();
             <th>Correo</th>
             <th>Rol</th>
             <th>Estado</th>
-            <th><a type="button" class="btn btn-outline-success" href="add.php">Registrar Nuevo</a></th>
+            <th colspan="3"><a type="button" class="btn btn-outline-success" href="add.php">Registrar Nuevo</a></th>
         </tr>
         <?php for ($i=0; $i < 1 ; $i++) { 
         ?>
@@ -83,15 +83,18 @@ $modeloUsuario=new usuario();
                     ?></button>
                 </form>
             </td>
+
             <td>
                 <a type="button" class="btn btn-outline-primary" href="edit.php?id=<?php echo $us['idUsuario']; ?>">
                     <i class="fa-solid fa-pen-to-square"></i>
                 </a>
-
+            </td>
+            <td>
                 <a type="button" class="btn btn-outline-info" href="ver.php?id=<?php echo $us['idUsuario']; ?>&rol=<?php echo $us['rolUsuario']?>">
                     <i class="fa-solid fa-eye"></i>
                 </a>
-                
+            </td>
+            <td>
                 <a type="button" class="btn btn-outline-danger"onclick="borrar(event,'<?php echo $us['idUsuario']?>')">
                     <i class="fa-solid fa-trash"></i>
                     <input type="hidden" class="redirect" value="Usuario">
