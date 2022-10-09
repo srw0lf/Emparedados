@@ -1,11 +1,11 @@
 <?php 
 require_once('../../Models/TipoDoc.php');
 
-if($_POST){
-		$idTipoDoc=$_POST['idTipoDoc'];
+if($_GET){
+		$id=$_GET['id'];
 		
 		$modeloTipoDoc=new tipoDoc();
-		$eliminar=$modeloTipoDoc->delete($idTipoDoc);
+		$eliminar=$modeloTipoDoc->delete($id);
 
 		if($eliminar){
 			echo "<script> window.location='../../Views/templates/TipoDoc/list.php'; </script>";

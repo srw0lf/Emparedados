@@ -2,7 +2,7 @@
 	require_once('../../../Models/TipoDoc.php');
 	$modeloTipoDoc=new tipoDoc();
 	$id=$_GET['id'];
-	$datosTipoDoc=$modeloTipoDoc->cosnsultarxid($id);
+	$datosTipoDoc=$modeloTipoDoc->consultarxid($id);
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +45,7 @@
         <label for="name">Nombre:</label>
         <input type="text" name="nombreTipoDoc" id="nombre" value="<?php echo $datos['nombreTipoDoc']?>"><br>
 
-        <button type="submit" name="bt-enviar" id="bt-enviar">Actualizar</button>
+        <!-- <button type="submit" name="bt-enviar" id="bt-enviar">Actualizar</button> -->
 
     	<?php 
 	

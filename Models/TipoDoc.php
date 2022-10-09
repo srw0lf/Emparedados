@@ -29,9 +29,20 @@ class TipoDoc extends Conexion{
     return $rows;
   }
 
-  public function cosnsultarxid($idTipoDoc){
+  public function consultarxid($idTipoDoc){
     $rows=null;
     $mostrar=$this->db->prepare("SELECT * FROM TipoDoc WHERE idTipoDoc=:idTipoDoc;");
+    $mostrar->bindparam(':idTipoDoc', $idTipoDoc);
+    $mostrar->execute();
+    while($result=$mostrar->fetch()){
+      $rows[]=$result;
+    }
+    return $rows;
+  }
+
+  public function verTipo($idTipoDoc){
+    $rows=null;
+    $mostrar=$this->db->prepare("SELECT * FROM TipoDoc AS td JOIN Cajero AS c ON td.idTipoDoc=c.idTipoDoc_FK WHERE idTipoDoc=:idTipoDoc;");
     $mostrar->bindparam(':idTipoDoc', $idTipoDoc);
     $mostrar->execute();
     while($result=$mostrar->fetch()){
