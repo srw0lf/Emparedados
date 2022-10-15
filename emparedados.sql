@@ -104,6 +104,16 @@ idProducto_FK int(4)
 
 );
 
+create table Carrito(
+
+idCarrito int(4) primary key auto_increment,
+cantidad int, 
+total float, 
+idProducto_FK int(4),
+idUsuario_FK int(4)
+
+);
+
  -- alter table Factura modify column idFactura int(4) auto_increment;
 
 -- drop table factura;
@@ -130,7 +140,14 @@ alter table Factura add constraint FK_FacturaPedido foreign key (idPedido_FK) re
 
 alter table Factura add constraint FK_FacturaProducto foreign key (idProducto_FK) references Producto(idProducto);
 
- -- alter table Factura drop constraint FK_FacturaPedido;
+-- foreing key de carrito
+
+alter table Carrito add constraint FK_CarritoProducto foreign key (idProducto_FK) references Producto(idProducto);
+
+alter table Carrito add constraint FK_CarritoUsuario foreign key (idUsuario_FK) 
+references Usuario(idUsuario);
+
+ -- alter table Factura drop constraint FK_CarritoProducto;
 
 insert into categoria values ('1', 'Sandwiches', 'cualquier tipo de sandwiches');
 insert into categoria values ('2', 'Sandwiches 2', 'cualquier tipo de sandwiches 2');
@@ -305,6 +322,8 @@ SELECT * FROM usuario WHERE correoUsuario='cris@gmail.com	'
 AND passworUsuario='123456' AND rolUsuario='Administrador';
 
 alter table Pedido AUTO_INCREMENT=0;
+alter table Factura AUTO_INCREMENT=0;
+
 SET SQL_SAFE_UPDATES=0;
 
 
