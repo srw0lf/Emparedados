@@ -53,5 +53,16 @@ class Factura extends Conexion{
     return $rows;
   }
 
+  public function validarStock($idProducto_FK){
+    $rows=null;
+    $mostrar=$this->db->prepare("SELECT cantidadProducto FROM Producto WHERE idProducto=:idProducto_FK");
+    $mostrar->bindparam(':idProducto_FK', $idProducto_FK);
+    $mostrar->execute();
+    while($result=$mostrar->fetch()){
+      $rows[]=$result;
+    }
+    return $rows;
+  }
+
 }
 ?>

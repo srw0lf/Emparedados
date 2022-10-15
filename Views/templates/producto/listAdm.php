@@ -110,6 +110,7 @@ $modeloProducto=new producto();
     </table>
 
     <a href="list.php">Productos disponibles</a>
+    <a href="listPrueba.php">Productos disponibles</a>
 
     <script>
 

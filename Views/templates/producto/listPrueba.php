@@ -40,7 +40,7 @@ $modeloPedido=new pedido();
             padding:2rem;
         }
 
-        .item{
+        .detalleProducto{
             margin-left: 2rem;
             padding: 2rem;
         }
@@ -69,30 +69,26 @@ $modeloPedido=new pedido();
                         }
                     
             ?>
-                <div class="item shadow">
-                    <h3 class="item-title"><?php echo $pr['nombreProducto'];?></h3>
 
-                    <img class="item-image" src="../../../Uploads/<?php echo $pr['foto'];?>" alt="" width="200">
+                <div class="detalleProducto shadow">
+                    <h3><?php echo $pr['nombreProducto'];?></h3>
 
-                    <div class="item-details">
-                        <p class="item-price"><?php echo $pr['precioUnidad'];?></p>
-                        <p class="item-desc"><?php echo $pr['descripcionProducto'];?></p>
-                        <p class="item-cat"><?php echo $pr['nombreCategoria'];?></p>
-                        <p>idPedido:</p>
-                        <select class="item-idPe"><?php
-                            if ($pedido!=null) {
-                                foreach($pedido as $pe){
-                                        
-                                    echo '<option value="">'.$pe['idPedido'].'</option><br>';
-                                }       
-                        }?></select>
-                        <p>IdProducto:</p>
-                        <p class="item-idPr"> <?php echo $pr['idProducto'];?></p>
+                    <img src="../../../Uploads/<?php echo $pr['foto'];?>" alt="" width="200">
 
-                        <button class="addToCart">Agregar al carrito</button>
-                    </div>
-                </div>
+                    <p><b>Precio: </b>$<?php echo $pr['precioUnidad'];?></p>
+                    <p><b>Descripcion: </b><?php echo $pr['descripcionProducto'];?></p>
+                    <p><b>Cantidad disponible: </b><?php echo $pr['cantidadProducto'];?> unidades</p>
+                    <p><b>Categoria: </b><?php echo $pr['nombreCategoria'];?></p>
+                    <p><b>id: </b><?php echo $pr['idProducto'];?></p>
 
+                    <form action="../../../Controllers/Carrito/add.php" method="post">
+                        <input type="hidden" name="idProducto_FK" value="<?php echo $pr['idProducto'];?>" readonly>
+                        <input type="hidden" name="cantidad" value="1">
+                        <input type="hidden" name="total" value="<?php echo $pr['precioUnidad']?>">
+
+                        <button type="submit" rol="button" class="btn btn-outline-primary">Agregar al carrito</button>
+                    </form>
+                </div>   
             <?php 
                     }       
                 }
@@ -100,45 +96,16 @@ $modeloPedido=new pedido();
             ?>
 
             </div>
-            <hr>
 
-            
-
-            <!-- <form action="../../../Controllers/Pedido/add.php" method="POST">
-                <input type="hidden" name="idPedido">
-
-                <?php date_default_timezone_set('America/Bogota');?>
-				<?php $fecha=date('Y-m-d');?>
-                <input type="hidden" name="fechaPedido" id="" value="<?php echo $fecha;?>">
-				
-                <label for="">Direccion Pedido</label>
-                <input type="text" name="direccionPedido">
-
-                <button type="submit"><i class="fa-solid fa-check"></i></button>
-            </form> -->
-
-            <!-- <form action="../../../Controllers/Factura/add.php">
-                <input type="hidden" name="idPedido" id="" value="">
-
-                <input type="hidden" name="idProducto" id="" value=>
-
-                <input type="number" name="cantidad">
-            </form> -->
-
-              
-<!-- END SECTION STORE -->
-
-
-
-<form action="../../../Controllers/Factura/add.php" method="POST">
+<!-- <form action="../../../Controllers/Factura/add.php" method="POST">
     <div class="shopping-cart-items shoppingCartItemsContainer">
     </div>
 
     <hr>
 
-    <?php date_default_timezone_set('America/Bogota');?>
-	<?php $fecha=date('Y-m-d');?>
-    <input type="hidden" name="fechaPedido" id="" value="<?php echo $fecha;?>">
+    <?php //date_default_timezone_set('America/Bogota');?>
+	<?php //$fecha=date('Y-m-d');?>
+    <input type="hidden" name="fechaPedido" id="" value="<?php //echo $fecha;?>">
 				
     <label for="">Direccion Pedido</label>
     <input type="text" name="direccionPedido" required=""><br>
@@ -152,15 +119,7 @@ $modeloPedido=new pedido();
     </div>
 
     <button type="submit">Comprar</button>
-</form>
-        <!-- ? END SHOPPING CART ITEMS -->
-
-        <!-- START TOTAL -->
-               
-        
-           
-       
-
+</form>          -->
 
     <!-- SCRIPTS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
